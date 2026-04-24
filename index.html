@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSIndieAI | Multi-Disciplinary Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #0b1120;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8, #c084fc, #fface4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90vw;
+            height: 90vw;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: -1;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(30, 41, 59, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover { color: #818cf8; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+        }
+
+        .news-ticker {
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="hero-glow"></div>
+
+    <!-- Top Status Bar -->
+    <div class="news-ticker py-2 overflow-hidden hidden md:block">
+        <div class="animate-marquee text-xs font-mono uppercase tracking-widest text-indigo-300">
+            [SYSTEM UPDATE] Sea Perch Simulator v2.4 Live • [NEW PROJECT] Bottle Cap Tracker Integrated • [DEPLOYED] Aura Buddy Azure Instance • [GITHUB] Repository Sync Complete • [AI] TobiAI Engine Updated
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center font-extrabold text-xl group-hover:rotate-12 transition-transform">DS</div>
+                <div class="flex flex-col">
+                    <span class="text-lg font-bold tracking-tight leading-none">IndieAI</span>
+                    <span class="text-[10px] text-indigo-400 font-mono">EST. 2024</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#projects" class="nav-link">Ecosystem</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="https://github.com/imredavid64-glitch" target="_blank" class="nav-link"><i class="fa-brands fa-github mr-1"></i> Source</a>
+                <a href="https://www.youtube.com/@dsindieai" target="_blank" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95">
+                    Watch Labs <i class="fa-solid fa-play ml-2 text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-20 px-6 relative">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <div class="inline-block px-4 py-1.5 glass rounded-full text-indigo-400 text-xs font-bold mb-6 border border-indigo-500/30">
+                    <i class="fa-solid fa-bolt-lightning mr-2"></i> MULTI-AGENT ARCHITECTURE
+                </div>
+                <h1 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight">
+                    Beyond <span class="gradient-text">Indie</span><br>Intelligence
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
+                    A distributed digital workshop crafting the next generation of AI companions, physics simulations, and specialized educational ecosystems.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">Explore Assets</a>
+                    <a href="https://changy-website-help-center.vercel.app" target="_blank" class="px-8 py-4 glass font-bold rounded-2xl hover:bg-white/5 transition-all border border-white/20">Documentation</a>
+                </div>
+            </div>
+            <div class="flex-1 w-full max-w-md">
+                <div class="glass p-8 rounded-3xl border border-white/10 relative">
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-indigo-500/20 blur-2xl rounded-full"></div>
+                    <div class="stats-grid">
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="text-indigo-400 font-bold text-2xl">12+</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Active Deploys</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="text-indigo-400 font-bold text-2xl">99%</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Uptime Rate</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="text-indigo-400 font-bold text-2xl">0</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">YouTube Subs</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <div class="text-indigo-400 font-bold text-2xl">OSS</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">GitHub Focus</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-4">Project Ecosystem</h2>
+                    <p class="text-slate-400">Filtering the DSIndieAI repository of tools and platforms.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 glass p-1.5 rounded-2xl border border-white/5">
+                    <button class="filter-btn active px-6 py-2 rounded-xl text-xs font-bold transition-all" onclick="filterProjects('all', this)">ALL</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('ai', this)">AI</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('edu', this)">EDUCATION</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('utility', this)">UTILITIES</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('sim', this)">SIMS</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="projects-container">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Split -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl blur opacity-20"></div>
+                <div class="relative glass p-2 rounded-3xl overflow-hidden">
+                    <div class="bg-slate-950 rounded-2xl p-8 aspect-square flex flex-col justify-center">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                                <i class="fa-solid fa-code text-indigo-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-sm">Clean Architecture</h4>
+                                    <p class="text-xs text-slate-500">React, Tailwind, & Vercel Edge.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5 translate-x-4">
+                                <i class="fa-solid fa-microchip text-purple-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-sm">Neural Processing</h4>
+                                    <p class="text-xs text-slate-500">Optimized LLM inference models.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5 translate-x-8">
+                                <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-sm">Private by Design</h4>
+                                    <p class="text-xs text-slate-500">Local-first data persistence.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-extrabold mb-8">Specialized Focus: <br><span class="text-indigo-400">Physics & Robotics</span></h2>
+                <div class="space-y-8">
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
+                            <i class="fa-solid fa-water mr-3"></i> Sea Perch Simulation
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Our premier simulator used for underwater ROV testing. Featuring real-time buoyancy calculations and thruster logic.
+                        </p>
+                        <a href="https://sea-perch-sim.vercel.app" class="text-xs font-bold text-indigo-400 mt-4 inline-block hover:underline">RUN SIMULATION →</a>
+                    </div>
+                    <div class="group">
+                        <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
+                            <i class="fa-solid fa-eye mr-3"></i> Vision Analysis
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Tools like the Bottle Cap Analyzer utilize browser-based CV to track real-world physical assets with high precision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-24 px-6 glass border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold mb-4">Development Roadmap</h2>
+                <p class="text-slate-400">Our trajectory for 2024 and beyond.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="p-6 bg-indigo-600/10 rounded-2xl border border-indigo-500/20">
+                    <div class="text-[10px] font-bold text-indigo-400 mb-2 uppercase">Phase 01</div>
+                    <h4 class="font-bold mb-2">Foundation</h4>
+                    <p class="text-xs text-slate-400">Launch of TobiAI & basic StudyHub infrastructure.</p>
+                    <div class="mt-4 flex items-center text-emerald-400 text-[10px] font-bold">
+                        <i class="fa-solid fa-circle-check mr-2"></i> COMPLETE
+                    </div>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 02</div>
+                    <h4 class="font-bold mb-2">Visual Logic</h4>
+                    <p class="text-xs text-slate-400">Integration of Bottle Cap Analyzer & vision suites.</p>
+                    <div class="mt-4 flex items-center text-indigo-400 text-[10px] font-bold">
+                        <i class="fa-solid fa-spinner fa-spin mr-2"></i> IN PROGRESS
+                    </div>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
+                    <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 03</div>
+                    <h4 class="font-bold mb-2">Simulation+</h4>
+                    <p class="text-xs text-slate-400">Multiplayer Sea Perch sim & enhanced physics.</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
+                    <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 04</div>
+                    <h4 class="font-bold mb-2">Unity</h4>
+                    <p class="text-xs text-slate-400">Unified dashboard for all DSIndieAI assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Center CTA -->
+    <section class="py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto glass p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent"></div>
+            <h2 class="text-4xl font-extrabold mb-6">Need Assistance?</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+                Explore the Changy Help Center for detailed documentation, troubleshooting, and project support.
+            </p>
+            <a href="https://changy-website-help-center.vercel.app" target="_blank" class="px-10 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-2xl font-bold transition-all inline-block">
+                Enter Help Center
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-md flex items-center justify-center font-bold">DS</div>
+                    <span class="text-lg font-bold">DSIndieAI</span>
+                </div>
+                <p class="text-slate-500 text-sm max-w-xs leading-relaxed">
+                    Building a digital playground for curiosity-driven development. Join us as we explore the intersection of AI, hardware, and web.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-bold mb-6 text-sm">Quick Links</h5>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="https://tobiai.vercel.app" class="hover:text-white transition-colors">TobiAI</a></li>
+                    <li><a href="https://studyhub-seven-tawny.vercel.app" class="hover:text-white transition-colors">StudyHub</a></li>
+                    <li><a href="https://sea-perch-sim.vercel.app" class="hover:text-white transition-colors">Sea Perch Sim</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold mb-6 text-sm">Connect</h5>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/imredavid64-glitch" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-all">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@dsindieai" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-red-600 transition-all">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-20 pt-8 border-t border-white/5 text-center text-xs text-slate-600">
+            &copy; 2024-2026 DSIndieAI Lab. All rights reserved. Managed by @imredavid64-glitch.
+        </div>
+    </footer>
+
+    <script>
+        const projects = [
+            { name: "TobiAI", url: "https://tobiai.vercel.app", desc: "Intelligent companion & personal AI assist platform.", icon: "fa-robot", tag: "ai", color: "indigo" },
+            { name: "StudyHub Core", url: "https://studyhub-seven-tawny.vercel.app", desc: "Main educational portal for research and notes.", icon: "fa-book-open", tag: "edu", color: "blue" },
+            { name: "StudyHub 2", url: "https://studyhub2-two.vercel.app", desc: "Next-generation workspace with collaborative features.", icon: "fa-graduation-cap", tag: "edu", color: "purple" },
+            { name: "Sea Perch Sim", url: "https://sea-perch-sim.vercel.app", desc: "Physics-based underwater robotics simulation suite.", icon: "fa-water", tag: "sim", color: "cyan" },
+            { name: "Aura Buddy", url: "https://aura-buddy-azure.vercel.app", desc: "Ambient UI companion for workflow optimization.", icon: "fa-sparkles", tag: "utility", color: "pink" },
+            { name: "Cap Analyzer", url: "https://bottle-cap-analyzer.vercel.app", desc: "Computer vision toolkit for physical object identification.", icon: "fa-camera-rotate", tag: "utility", color: "emerald" },
+            { name: "Cap Tracker", url: "https://bottle-cap-tracker.vercel.app", desc: "Data dashboard for collection and visual inventory.", icon: "fa-list-check", tag: "utility", color: "orange" },
+            { name: "Changy Website", url: "https://changy-website.vercel.app", desc: "Brand showcase and main visual interface.", icon: "fa-palette", tag: "design", color: "rose" },
+            { name: "FlowWeb", url: "https://flowweb-tan.vercel.app", desc: "Streamlined navigation and workflow management hub.", icon: "fa-wind", tag: "utility", color: "sky" },
+            { name: "Rush E Makey", url: "https://rush-e-makey-makey.vercel.app", desc: "Interactive hardware/music experiment platform.", icon: "fa-music", tag: "utility", color: "violet" },
+            { name: "Grader Jet", url: "https://grader-jet.vercel.app", desc: "Automated assessment and performance tracking.", icon: "fa-plane-up", tag: "edu", color: "amber" },
+            { name: "Help Center", url: "https://changy-website-help-center.vercel.app", desc: "Centralized knowledge base and documentation site.", icon: "fa-circle-info", tag: "utility", color: "slate" }
+        ];
+
+        const container = document.getElementById('projects-container');
+
+        function renderProjects(filter = 'all') {
+            container.innerHTML = '';
+            const filtered = filter === 'all' ? projects : projects.filter(p => p.tag === filter);
+            
+            filtered.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between group';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-${project.color}-500/10 rounded-2xl flex items-center justify-center text-${project.color}-400 text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid ${project.icon}"></i>
+                            </div>
+                            <div class="px-3 py-1 bg-white/5 text-[10px] rounded-full text-slate-500 font-bold uppercase tracking-wider">${project.tag}</div>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2 group-hover:text-indigo-300 transition-colors">${project.name}</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-8">${project.desc}</p>
+                    </div>
+                    <a href="${project.url}" target="_blank" class="w-full py-3 bg-white/5 hover:bg-indigo-600 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                        LAUNCH HUB <i class="fa-solid fa-arrow-up-right-from-square ml-2 opacity-50 group-hover:opacity-100"></i>
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterProjects(tag, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'text-white', 'bg-indigo-600');
+                b.classList.add('text-slate-400');
+            });
+            btn.classList.add('active', 'text-white');
+            btn.classList.remove('text-slate-400');
+            renderProjects(tag);
+        }
+
+        // Initialize
+        renderProjects();
+
+        // Reveal on scroll logic
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
