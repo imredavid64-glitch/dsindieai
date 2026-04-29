@@ -104,10 +104,13 @@
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+        .research-badge {
+            background: linear-gradient(90deg, #ef4444, #f59e0b);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -117,14 +120,14 @@
     <!-- Top Status Bar -->
     <div class="news-ticker py-2 overflow-hidden hidden md:block">
         <div class="animate-marquee text-xs font-mono uppercase tracking-widest text-indigo-300">
-            [SYSTEM UPDATE] Sea Perch Simulator v2.4 Live • [NEW PROJECT] Bottle Cap Tracker Integrated • [DEPLOYED] Aura Buddy Azure Instance • [GITHUB] Repository Sync Complete • [AI] TobiAI Engine Updated
+            [SYSTEM UPDATE] Sea Perch Simulator v2.4 Live • [NEW RESEARCH] AI Low Data Bias Research Simulation Active • [NEW PROJECT] Medic-Experiment v1.0 • [DEPLOYED] Aura Buddy Azure Instance • [GITHUB] Repository Sync Complete • [AI] TobiAI Engine Updated
         </div>
     </div>
 
     <!-- Navigation -->
     <nav class="sticky top-0 w-full z-50 glass">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3 group cursor-pointer">
+            <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
                 <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center font-extrabold text-xl group-hover:rotate-12 transition-transform">DS</div>
                 <div class="flex flex-col">
                     <span class="text-lg font-bold tracking-tight leading-none">IndieAI</span>
@@ -133,9 +136,10 @@
             </div>
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#projects" class="nav-link">Ecosystem</a>
+                <a href="#research" class="nav-link">Research</a>
                 <a href="#roadmap" class="nav-link">Roadmap</a>
-                <a href="https://github.com/imredavid64-glitch" target="_blank" class="nav-link"><i class="fa-brands fa-github mr-1"></i> Source</a>
-                <a href="https://www.youtube.com/@dsindieai" target="_blank" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95">
+                <a href="https://github.com/imredavid64-glitch" target="_blank" class="nav-link"><i class="fa-brands fa-github mr-1"></i> Repositories</a>
+                <a href="https://www.youtube.com/@dsindieai" target="_blank" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95 text-white">
                     Watch Labs <i class="fa-solid fa-play ml-2 text-[10px]"></i>
                 </a>
             </div>
@@ -153,32 +157,32 @@
                     Beyond <span class="gradient-text">Indie</span><br>Intelligence
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-                    A distributed digital workshop crafting the next generation of AI companions, physics simulations, and specialized educational ecosystems.
+                    A distributed digital workshop crafting the next generation of AI companions, physics simulations, and specialized educational ecosystems. Exploring low-data bias and medical AI integration.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
                     <a href="#projects" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">Explore Assets</a>
-                    <a href="https://changy-website-help-center.vercel.app" target="_blank" class="px-8 py-4 glass font-bold rounded-2xl hover:bg-white/5 transition-all border border-white/20">Documentation</a>
+                    <a href="https://github.com/imredavid64-glitch/Medic-Experiment" target="_blank" class="px-8 py-4 glass font-bold rounded-2xl hover:bg-white/5 transition-all border border-white/20">Newest Research</a>
                 </div>
             </div>
             <div class="flex-1 w-full max-w-md">
                 <div class="glass p-8 rounded-3xl border border-white/10 relative">
                     <div class="absolute -top-4 -right-4 w-24 h-24 bg-indigo-500/20 blur-2xl rounded-full"></div>
-                    <div class="stats-grid">
+                    <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl">12+</div>
-                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Active Deploys</div>
+                            <div class="text-indigo-400 font-bold text-2xl">20+</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Public Repos</div>
                         </div>
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl">99%</div>
-                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Uptime Rate</div>
+                            <div class="text-indigo-400 font-bold text-2xl">99.9%</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Code Reliability</div>
                         </div>
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl">0</div>
-                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">YouTube Subs</div>
+                            <div class="text-indigo-400 font-bold text-2xl">Active</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Research Phase</div>
                         </div>
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl">OSS</div>
-                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">GitHub Focus</div>
+                            <div class="text-indigo-400 font-bold text-2xl">Python</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Core Logic</div>
                         </div>
                     </div>
                 </div>
@@ -192,14 +196,14 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                 <div>
                     <h2 class="text-4xl font-extrabold mb-4">Project Ecosystem</h2>
-                    <p class="text-slate-400">Filtering the DSIndieAI repository of tools and platforms.</p>
+                    <p class="text-slate-400">Filtering the full DSIndieAI repository of tools, research, and platforms.</p>
                 </div>
                 <div class="flex flex-wrap gap-2 glass p-1.5 rounded-2xl border border-white/5">
                     <button class="filter-btn active px-6 py-2 rounded-xl text-xs font-bold transition-all" onclick="filterProjects('all', this)">ALL</button>
                     <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('ai', this)">AI</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('research', this)">RESEARCH</button>
                     <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('edu', this)">EDUCATION</button>
                     <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('utility', this)">UTILITIES</button>
-                    <button class="filter-btn px-6 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('sim', this)">SIMS</button>
                 </div>
             </div>
 
@@ -209,58 +213,54 @@
         </div>
     </section>
 
-    <!-- Feature Split -->
-    <section class="py-24 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="relative">
-                <div class="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl blur opacity-20"></div>
-                <div class="relative glass p-2 rounded-3xl overflow-hidden">
-                    <div class="bg-slate-950 rounded-2xl p-8 aspect-square flex flex-col justify-center">
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                                <i class="fa-solid fa-code text-indigo-400 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-sm">Clean Architecture</h4>
-                                    <p class="text-xs text-slate-500">React, Tailwind, & Vercel Edge.</p>
-                                </div>
+    <!-- Research Focused Section -->
+    <section id="research" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-red-500 to-indigo-600 rounded-3xl blur opacity-20"></div>
+                    <div class="relative glass p-4 rounded-3xl overflow-hidden">
+                        <div class="bg-slate-950 rounded-2xl p-6 font-mono text-xs text-indigo-300">
+                            <div class="flex justify-between border-b border-white/10 pb-2 mb-4">
+                                <span>agent_simulation.py</span>
+                                <span class="text-slate-500">Python 3.13</span>
                             </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5 translate-x-4">
-                                <i class="fa-solid fa-microchip text-purple-400 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-sm">Neural Processing</h4>
-                                    <p class="text-xs text-slate-500">Optimized LLM inference models.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5 translate-x-8">
-                                <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-sm">Private by Design</h4>
-                                    <p class="text-xs text-slate-500">Local-first data persistence.</p>
-                                </div>
+                            <div class="space-y-1">
+                                <p><span class="text-purple-400">import</span> genai</p>
+                                <p><span class="text-purple-400">from</span> rich.console <span class="text-purple-400">import</span> Console</p>
+                                <p>&nbsp;</p>
+                                <p><span class="text-slate-500"># AI Low Data Bias Research</span></p>
+                                <p>API_KEY = <span class="text-emerald-400">"AIzaSyB7..."</span></p>
+                                <p>client = genai.Client(api_key=API_KEY)</p>
+                                <p>&nbsp;</p>
+                                <p><span class="text-purple-400">def</span> <span class="text-blue-400">simulate_agent_bias</span>(input_data):</p>
+                                <p class="pl-4">results = client.analyze(input_data)</p>
+                                <p class="pl-4"><span class="text-purple-400">return</span> results.mitigate()</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <h2 class="text-4xl font-extrabold mb-8">Specialized Focus: <br><span class="text-indigo-400">Physics & Robotics</span></h2>
-                <div class="space-y-8">
-                    <div class="group">
-                        <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
-                            <i class="fa-solid fa-water mr-3"></i> Sea Perch Simulation
-                        </h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Our premier simulator used for underwater ROV testing. Featuring real-time buoyancy calculations and thruster logic.
-                        </p>
-                        <a href="https://sea-perch-sim.vercel.app" class="text-xs font-bold text-indigo-400 mt-4 inline-block hover:underline">RUN SIMULATION →</a>
-                    </div>
-                    <div class="group">
-                        <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
-                            <i class="fa-solid fa-eye mr-3"></i> Vision Analysis
-                        </h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Tools like the Bottle Cap Analyzer utilize browser-based CV to track real-world physical assets with high precision.
-                        </p>
+                <div>
+                    <div class="research-badge mb-4 inline-block">Active Lab</div>
+                    <h2 class="text-4xl font-extrabold mb-8">AI Bias Research & <br><span class="text-indigo-400">Medical Experiments</span></h2>
+                    <div class="space-y-8">
+                        <div class="group">
+                            <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
+                                <i class="fa-solid fa-microscope mr-3 text-red-400"></i> Medic-Experiment
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                A specialized experiment focusing on the integration of medical data handling and AI-driven diagnostic assistance. Built using Python and the Google Generative AI SDK.
+                            </p>
+                            <a href="https://github.com/imredavid64-glitch/Medic-Experiment" target="_blank" class="text-xs font-bold text-red-400 mt-4 inline-block hover:underline">VIEW SOURCE CODE →</a>
+                        </div>
+                        <div class="group">
+                            <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
+                                <i class="fa-solid fa-brain mr-3 text-indigo-400"></i> Low Data Bias Research
+                            </h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Investigating how AI models behave when provided with minimal datasets. Focus on mitigation strategies for LLM hallucinations in low-context environments.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -269,12 +269,10 @@
 
     <!-- Roadmap Section -->
     <section id="roadmap" class="py-24 px-6 glass border-y border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold mb-4">Development Roadmap</h2>
-                <p class="text-slate-400">Our trajectory for 2026 and beyond.</p>
-            </div>
-            <div class="grid md:grid-cols-4 gap-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-4">Trajectory</h2>
+            <p class="text-slate-400 mb-16">Evolving from simple apps to complex research ecosystems.</p>
+            <div class="grid md:grid-cols-4 gap-4 text-left">
                 <div class="p-6 bg-indigo-600/10 rounded-2xl border border-indigo-500/20">
                     <div class="text-[10px] font-bold text-indigo-400 mb-2 uppercase">Phase 01</div>
                     <h4 class="font-bold mb-2">Foundation</h4>
@@ -283,23 +281,23 @@
                         <i class="fa-solid fa-circle-check mr-2"></i> COMPLETE
                     </div>
                 </div>
-                <div class="p-6 bg-white/5 rounded-2xl border border-white/5">
-                    <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 02</div>
-                    <h4 class="font-bold mb-2">Visual Logic</h4>
-                    <p class="text-xs text-slate-400">Integration of Bottle Cap Analyzer & vision suites.</p>
+                <div class="p-6 bg-indigo-600/20 rounded-2xl border border-indigo-500/40">
+                    <div class="text-[10px] font-bold text-indigo-400 mb-2 uppercase">Phase 02</div>
+                    <h4 class="font-bold mb-2">Research Labs</h4>
+                    <p class="text-xs text-slate-400">Medic-Experiment & Low Data Bias simulations.</p>
                     <div class="mt-4 flex items-center text-indigo-400 text-[10px] font-bold">
                         <i class="fa-solid fa-spinner fa-spin mr-2"></i> IN PROGRESS
                     </div>
                 </div>
                 <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
                     <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 03</div>
-                    <h4 class="font-bold mb-2">Simulation+</h4>
-                    <p class="text-xs text-slate-400">Multiplayer Sea Perch sim & enhanced physics.</p>
+                    <h4 class="font-bold mb-2">Neural Hub</h4>
+                    <p class="text-xs text-slate-400">Unified dashboard for researchers and students.</p>
                 </div>
                 <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
                     <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 04</div>
-                    <h4 class="font-bold mb-2">Unity</h4>
-                    <p class="text-xs text-slate-400">Unified dashboard for all DSIndieAI assets.</p>
+                    <h4 class="font-bold mb-2">Hardware-AI</h4>
+                    <p class="text-xs text-slate-400">Integration with physical ESP-IDF edge devices.</p>
                 </div>
             </div>
         </div>
@@ -309,11 +307,11 @@
     <section class="py-24 px-6 text-center">
         <div class="max-w-4xl mx-auto glass p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent"></div>
-            <h2 class="text-4xl font-extrabold mb-6">Need Assistance?</h2>
+            <h2 class="text-4xl font-extrabold mb-6">Need Technical Help?</h2>
             <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-                Explore the Changy Help Center for detailed documentation, troubleshooting, and project support.
+                Explore the Changy Help Center for detailed documentation on our AI research, repositories, and project support.
             </p>
-            <a href="https://changy-website-help-center.vercel.app" target="_blank" class="px-10 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-2xl font-bold transition-all inline-block">
+            <a href="https://changy-website-help-center.vercel.app" target="_blank" class="px-10 py-4 bg-indigo-600 hover:bg-indigo-700 rounded-2xl font-bold transition-all inline-block text-white">
                 Enter Help Center
             </a>
         </div>
@@ -328,47 +326,52 @@
                     <span class="text-lg font-bold">DSIndieAI</span>
                 </div>
                 <p class="text-slate-500 text-sm max-w-xs leading-relaxed">
-                    Building a digital playground for curiosity-driven development. Join us as we explore the intersection of AI, hardware, and web.
+                    A digital workshop by @imredavid64-glitch exploring the intersection of AI, physics, and medical research.
                 </p>
             </div>
             <div>
-                <h5 class="font-bold mb-6 text-sm">Quick Links</h5>
+                <h5 class="font-bold mb-6 text-sm text-slate-200">Featured Work</h5>
                 <ul class="space-y-4 text-sm text-slate-500">
-                    <li><a href="https://tobiai.vercel.app" class="hover:text-white transition-colors">TobiAI</a></li>
-                    <li><a href="https://studyhub-seven-tawny.vercel.app" class="hover:text-white transition-colors">StudyHub</a></li>
+                    <li><a href="https://github.com/imredavid64-glitch/Medic-Experiment" class="hover:text-white transition-colors">Medic-Experiment</a></li>
+                    <li><a href="https://tobiai.vercel.app" class="hover:text-white transition-colors">TobiAI Platform</a></li>
                     <li><a href="https://sea-perch-sim.vercel.app" class="hover:text-white transition-colors">Sea Perch Sim</a></li>
                 </ul>
             </div>
             <div>
-                <h5 class="font-bold mb-6 text-sm">Connect</h5>
+                <h5 class="font-bold mb-6 text-sm text-slate-200">Connect</h5>
                 <div class="flex space-x-4">
-                    <a href="https://github.com/imredavid64-glitch" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-all">
+                    <a href="https://github.com/imredavid64-glitch" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-all text-white">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    <a href="https://www.youtube.com/@dsindieai" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-red-600 transition-all">
+                    <a href="https://www.youtube.com/@dsindieai" target="_blank" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-red-600 transition-all text-white">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="mt-20 pt-8 border-t border-white/5 text-center text-xs text-slate-600">
-            &copy; 2024-2026 DSIndieAI Lab. All rights reserved. Managed by @imredavid64-glitch.
+            &copy; 2024-2026 DSIndieAI Lab. Managed by @imredavid64-glitch. All rights reserved.
         </div>
     </footer>
 
     <script>
         const projects = [
+            { name: "Medic-Experiment", url: "https://github.com/imredavid64-glitch/Medic-Experiment", desc: "AI-driven medical diagnostics research and experimentation.", icon: "fa-microscope", tag: "research", color: "red" },
+            { name: "Low Data Bias", url: "https://github.com/imredavid64-glitch", desc: "Agent-based simulation researching AI behavior in low-data environments.", icon: "fa-vial", tag: "research", color: "indigo" },
             { name: "TobiAI", url: "https://tobiai.vercel.app", desc: "Intelligent companion & personal AI assist platform.", icon: "fa-robot", tag: "ai", color: "indigo" },
+            { name: "TobiAI-CLI", url: "https://github.com/imredavid64-glitch/tobiai-cli", desc: "Command line interface for interacting with TobiAI systems.", icon: "fa-terminal", tag: "utility", color: "slate" },
             { name: "StudyHub Core", url: "https://studyhub-seven-tawny.vercel.app", desc: "Main educational portal for research and notes.", icon: "fa-book-open", tag: "edu", color: "blue" },
             { name: "StudyHub 2", url: "https://studyhub2-two.vercel.app", desc: "Next-generation workspace with collaborative features.", icon: "fa-graduation-cap", tag: "edu", color: "purple" },
             { name: "Sea Perch Sim", url: "https://sea-perch-sim.vercel.app", desc: "Physics-based underwater robotics simulation suite.", icon: "fa-water", tag: "sim", color: "cyan" },
             { name: "Aura Buddy", url: "https://aura-buddy-azure.vercel.app", desc: "Ambient UI companion for workflow optimization.", icon: "fa-sparkles", tag: "utility", color: "pink" },
+            { name: "Aura-Buddy-Extension", url: "https://github.com/imredavid64-glitch/aura-buddy-extension", desc: "Browser extension for the Aura Buddy companion.", icon: "fa-puzzle-piece", tag: "utility", color: "pink" },
             { name: "Cap Analyzer", url: "https://bottle-cap-analyzer.vercel.app", desc: "Computer vision toolkit for physical object identification.", icon: "fa-camera-rotate", tag: "utility", color: "emerald" },
             { name: "Cap Tracker", url: "https://bottle-cap-tracker.vercel.app", desc: "Data dashboard for collection and visual inventory.", icon: "fa-list-check", tag: "utility", color: "orange" },
             { name: "Changy Website", url: "https://changy-website.vercel.app", desc: "Brand showcase and main visual interface.", icon: "fa-palette", tag: "design", color: "rose" },
             { name: "FlowWeb", url: "https://flowweb-tan.vercel.app", desc: "Streamlined navigation and workflow management hub.", icon: "fa-wind", tag: "utility", color: "sky" },
             { name: "Rush E Makey", url: "https://rush-e-makey-makey.vercel.app", desc: "Interactive hardware/music experiment platform.", icon: "fa-music", tag: "utility", color: "violet" },
             { name: "Grader Jet", url: "https://grader-jet.vercel.app", desc: "Automated assessment and performance tracking.", icon: "fa-plane-up", tag: "edu", color: "amber" },
+            { name: "DS-Notes", url: "https://github.com/imredavid64-glitch/ds-notes", desc: "Centralized markdown repository for research and notes.", icon: "fa-note-sticky", tag: "edu", color: "teal" },
             { name: "Help Center", url: "https://changy-website-help-center.vercel.app", desc: "Centralized knowledge base and documentation site.", icon: "fa-circle-info", tag: "utility", color: "slate" }
         ];
 
@@ -392,7 +395,7 @@
                         <h3 class="text-lg font-bold mb-2 group-hover:text-indigo-300 transition-colors">${project.name}</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-8">${project.desc}</p>
                     </div>
-                    <a href="${project.url}" target="_blank" class="w-full py-3 bg-white/5 hover:bg-indigo-600 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                    <a href="${project.url}" target="_blank" class="w-full py-3 bg-white/5 hover:bg-indigo-600 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center text-slate-300 hover:text-white group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)]">
                         LAUNCH HUB <i class="fa-solid fa-arrow-up-right-from-square ml-2 opacity-50 group-hover:opacity-100"></i>
                     </a>
                 `;
