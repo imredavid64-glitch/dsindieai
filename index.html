@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23818cf8'/><stop offset='100%' stop-color='%23c084fc'/></linearGradient></defs><circle cx='50' cy='50' r='45' fill='%230b1120' stroke='url(%23g)' stroke-width='6'/><path d='M35,65 L50,35 L65,65 L50,55 Z' fill='url(%23g)'/><circle cx='50' cy='35' r='5' fill='%23fface4'/><circle cx='35' cy='65' r='4' fill='%23818cf8'/><circle cx='65' cy='65' r='4' fill='%23c084fc'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;800&display=swap');
 
@@ -21,11 +22,13 @@
             background-color: var(--bg);
             color: #f1f5f9;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .glass {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -42,19 +45,20 @@
             transform: translateX(-50%);
             width: 90vw;
             height: 90vw;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
             z-index: -1;
+            pointer-events: none;
         }
 
         .project-card, .collab-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .project-card:hover, .collab-card:hover {
-            transform: translateY(-12px) scale(1.02);
+            transform: translateY(-6px) scale(1.01);
             border-color: rgba(99, 102, 241, 0.5);
-            background: rgba(30, 41, 59, 0.8);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
         }
 
         .nav-link {
@@ -84,7 +88,7 @@
         }
 
         .news-ticker {
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.12), transparent);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -114,60 +118,56 @@
         }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased bg-[#0b1120] text-slate-100 min-h-screen">
     <div class="hero-glow"></div>
 
-    <!-- Top Status Bar (Enriched with telemetry updates) -->
     <div class="news-ticker py-2 overflow-hidden hidden md:block">
         <div class="animate-marquee text-xs font-mono uppercase tracking-widest text-indigo-300">
-            [SYSTEM UPDATE] Sea Perch Simulator v2.4 Live • [NEW RESEARCH] AI Low Data Bias Research Simulation Active • [NEW PROJECT] Medic-Experiment v1.0 • [DEPLOYED] Aura Buddy Azure Instance • [NEW] Sensory Bot active & environment data telemetry sync complete • [NEW COMPANION] AI Keychain system ready for hardware integration • [RELEASE] StudyHub v3.0 New Workspace Build live • [MEDIA] "Learning Fans" new visual educational format launched • [UNDER DEVELOPMENT] "Changers" Social Media for Changemakers being actively built • [HARDWARE DEPLOYMENT] New Bottle Cap Counting Machine active • [LOCAL COLLAB] Nagykovácsi Linum bottle cap collector partnership live • [GITHUB] Repository Sync Complete • [AI] TobiAI Engine Updated
+            [SYSTEM UPDATE] Sea Perch Simulator v2.4 Live • [NEW RESEARCH] AI Low Data Bias Research Simulation Active • [NEW PROJECT] Medic-Experiment v1.0 • [DEPLOYED] Aura Buddy Azure Instance • [NEW] Sensory Bot active & environment data telemetry sync complete • [RELEASE] StudyHub v3.0 Workspace Live • [MEDIA] Learning Fans new visual educational format launched • [OPEN ROLES] Hiring Business Analysts, Research Editors, Content Creators & Codebase Checkers • [GITHUB] 43 Active Repositories Synced
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="sticky top-0 w-full z-50 glass">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                <!-- Utilizing the official logo from Screenshot 2026-06-29 at 0.34.36_2.png -->
                 <div class="w-10 h-10 bg-indigo-950/40 rounded-lg flex items-center justify-center border border-indigo-500/20 group-hover:rotate-12 transition-transform overflow-hidden p-1">
-                    <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.36.png'; this.onerror=function(){this.src='https://placehold.co/40x40/6366f1/ffffff?text=DS';}">
+                    <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/40x40/6366f1/ffffff?text=DS';">
                 </div>
                 <div class="flex flex-col">
                     <span class="text-lg font-bold tracking-tight leading-none text-white">IndieAI</span>
                     <span class="text-[10px] text-indigo-400 font-mono">EST. 2024</span>
                 </div>
             </div>
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <div class="hidden md:flex items-center space-x-7 text-sm font-medium">
                 <a href="#founder" class="nav-link">Founder</a>
                 <a href="#collabs" class="nav-link">Collabs</a>
                 <a href="#projects" class="nav-link">Ecosystem</a>
                 <a href="#research" class="nav-link">Research</a>
                 <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#careers" class="nav-link text-indigo-300 font-bold"><i class="fa-solid fa-user-plus mr-1"></i> Open Roles</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="https://github.com/imredavid64-glitch" target="_blank" class="nav-link"><i class="fa-brands fa-github mr-1"></i> Repositories</a>
-                <a href="https://www.youtube.com/@dsindieai" target="_blank" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95 text-white">
-                    Watch Labs <i class="fa-solid fa-play ml-2 text-[10px]"></i>
+                <a href="https://github.com/imredavid64-glitch" target="_blank" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/20 active:scale-95 text-white flex items-center">
+                    <i class="fa-brands fa-github mr-1.5"></i> Repositories
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="pt-24 pb-20 px-6 relative">
+    <header class="pt-16 pb-16 px-6 relative">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
             <div class="flex-1 text-center md:text-left">
                 <div class="inline-block px-4 py-1.5 glass rounded-full text-indigo-400 text-xs font-bold mb-6 border border-indigo-500/30">
                     <i class="fa-solid fa-bolt-lightning mr-2"></i> MULTI-AGENT ARCHITECTURE
                 </div>
-                <h1 class="text-5xl md:text-8xl font-extrabold mb-6 leading-tight">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
                     Beyond <span class="gradient-text">Indie</span><br>Intelligence
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-xl leading-relaxed">
-                    A distributed digital workshop crafting the next generation of AI companions, physical environmental sensory robots, and social spaces for changemakers.
+                    A distributed digital workshop crafting the next generation of AI companions, environmental sensory robotics, and social spaces for changemakers.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#projects" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">Explore Assets</a>
-                    <a href="#founder" class="px-8 py-4 glass font-bold rounded-2xl hover:bg-white/5 transition-all border border-white/20">The Pioneer</a>
+                    <a href="#projects" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">Explore Repos & Apps</a>
+                    <a href="#founder" class="px-8 py-4 glass font-bold rounded-2xl hover:bg-white/5 transition-all border border-white/20">The Founder</a>
                 </div>
             </div>
             <div class="flex-1 w-full max-w-md">
@@ -175,12 +175,12 @@
                     <div class="absolute -top-4 -right-4 w-24 h-24 bg-indigo-500/20 blur-2xl rounded-full"></div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl" id="repo-count">40+</div>
+                            <div class="text-indigo-400 font-bold text-2xl" id="repo-count">43</div>
                             <div class="text-[10px] uppercase tracking-tighter text-slate-500">Public Repos</div>
                         </div>
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <div class="text-indigo-400 font-bold text-2xl">99.9%</div>
-                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Code Reliability</div>
+                            <div class="text-indigo-400 font-bold text-2xl">18+</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-slate-500">Live Apps</div>
                         </div>
                         <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
                             <div class="text-indigo-400 font-bold text-2xl">Active</div>
@@ -191,19 +191,12 @@
                             <div class="text-[10px] uppercase tracking-tighter text-slate-500">Sync Status</div>
                         </div>
                     </div>
-                    <!-- Reference label for verified sync screenshot source -->
-                    <div class="mt-4 text-center">
-                        <span class="text-[10px] font-mono text-slate-500 hover:text-slate-400 transition-colors">
-                            <i class="fa-solid fa-circle-nodes mr-1 text-indigo-400"></i> Indexed via Screenshot 2026-05-12 at 19.22.29.png
-                        </span>
-                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Founder & Leadership Spotlight Section -->
-    <section id="founder" class="py-20 px-6 relative border-t border-white/5 bg-slate-900/10">
+    <section id="founder" class="py-20 px-6 relative border-t border-white/5 bg-slate-900/20">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-xs font-mono tracking-widest text-indigo-400 uppercase">[ LEADERSHIP REPORT ]</span>
@@ -211,16 +204,14 @@
                 <p class="text-slate-400 mt-2">Meeting the architect behind DSIndieAI's core physical and digital innovations.</p>
             </div>
 
-            <!-- Main Portrait Layout with toggle views -->
             <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-                <!-- Profile bio & quote column -->
                 <div class="lg:col-span-7 flex flex-col justify-between glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 relative overflow-hidden">
                     <div class="absolute -top-12 -left-12 w-48 h-48 bg-purple-500/10 blur-3xl rounded-full"></div>
                     
                     <div class="relative z-10">
                         <div class="flex items-center space-x-4 mb-8">
                             <div class="w-14 h-14 bg-indigo-950/60 rounded-2xl flex items-center justify-center border border-indigo-400/30 overflow-hidden p-2">
-                                <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.36.png';">
+                                <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/56x56/6366f1/ffffff?text=DS';">
                             </div>
                             <div>
                                 <h3 class="text-3xl font-extrabold text-white">David I.K.</h3>
@@ -229,11 +220,10 @@
                         </div>
 
                         <p class="text-slate-300 text-lg leading-relaxed mb-8 font-light">
-                            Currently a student at the <span class="text-indigo-300 font-semibold">American International School of Budapest</span>, he is set to graduate in <span class="text-purple-300 font-semibold">2030</span>. He alone founded the organization along with creating the lead innovations himself.
+                            Currently a student at the <span class="text-indigo-300 font-semibold">American International School of Budapest</span>, set to graduate in <span class="text-purple-300 font-semibold">2030</span>. He alone founded the organization along with creating lead software, mechatronic, and research innovations.
                         </p>
                     </div>
 
-                    <!-- Quote Block Styled from Screenshot 2026-06-29 at 0.34.21.jpg -->
                     <div class="relative z-10 bg-white/5 border border-white/10 p-6 rounded-2xl mt-4">
                         <span class="text-4xl text-indigo-400/40 font-serif absolute -top-2 left-4">“</span>
                         <p class="italic text-indigo-200 text-lg pl-6 pr-4 font-medium">
@@ -242,7 +232,6 @@
                         <div class="text-right mt-2 text-xs font-mono text-indigo-400">— DAVID I.K.</div>
                     </div>
 
-                    <!-- Verification Metadata -->
                     <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-4">
                         <span class="font-mono hover:text-indigo-400 transition-colors">
                             <i class="fa-solid fa-link mr-1"></i> dsindieai-website.vercel.app
@@ -253,15 +242,12 @@
                     </div>
                 </div>
 
-                <!-- Picture Spotlight Column featuring Screenshot 2026-06-29 at 0.34.21.jpg and hosted url -->
                 <div class="lg:col-span-5 flex flex-col gap-6">
-                    <!-- Interactive Visual Box -->
                     <div class="glass p-4 rounded-[2.5rem] border border-white/10 flex-1 flex flex-col justify-between group relative overflow-hidden min-h-[320px]">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-10 pointer-events-none"></div>
                         
-                        <!-- Main display frame containing Screenshot 2026-06-29 at 0.34.21.jpg and the ImgBB direct link fallback -->
-                        <div class="w-full h-full rounded-2xl overflow-hidden relative border border-white/5 bg-slate-950">
-                            <img src="https://i.ibb.co/gFMyXFQ5/image.jpg" alt="David I.K. Founder Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.21.jpg'; this.onerror=function(){this.src='https://placehold.co/600x400/1e1b4b/818cf8?text=David+I.K.+Portrait';}">
+                        <div class="w-full h-full rounded-2xl overflow-hidden relative border border-white/5 bg-slate-950 min-h-[250px]">
+                            <img src="https://i.ibb.co/gFMyXFQ5/image.jpg" alt="David I.K. Founder Image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e1b4b/818cf8?text=David+I.K.+Portrait';">
                             
                             <div class="absolute bottom-4 left-4 right-4 z-20 flex justify-between items-end">
                                 <div class="bg-slate-900/90 backdrop-blur-md border border-white/10 px-4 py-2 rounded-xl">
@@ -274,7 +260,6 @@
                             </div>
                         </div>
 
-                        <!-- Card Identity Switcher Label -->
                         <div class="mt-4 flex items-center justify-between text-xs px-2">
                             <span class="text-slate-400 font-mono flex items-center">
                                 <i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i> R.O.B. is visible in the image.
@@ -288,22 +273,13 @@
             </div>
         </div>
 
-        <!-- Pop-up Interactive Card Display matching Screenshot 2026-06-29 at 0.34.21.jpg card visual style -->
+        <!-- Founder Portrait Card Modal -->
         <div id="card-mockup-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
             <div class="relative w-full max-w-4xl bg-gradient-to-r from-purple-900 via-indigo-950 to-purple-950 rounded-[2.5rem] p-8 border-4 border-purple-500/40 shadow-[0_0_50px_rgba(168,85,247,0.3)] overflow-hidden">
-                <!-- Corner Chevron Accents replicating image template aesthetics -->
-                <div class="absolute top-6 left-6 flex flex-col space-y-1">
-                    <span class="text-purple-300/30 text-2xl font-black">❯❯❯</span>
-                </div>
-                <div class="absolute bottom-6 right-6 flex flex-col space-y-1 rotate-180">
-                    <span class="text-purple-300/30 text-2xl font-black">❯❯❯</span>
-                </div>
-                
                 <button onclick="toggleCardMockup()" class="absolute top-6 right-6 w-10 h-10 bg-slate-900/80 border border-white/15 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition-all z-20">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
 
-                <!-- Internal Card Content structured exactly like Screenshot 2026-06-29 at 0.34.21.jpg -->
                 <div class="bg-purple-200 text-purple-950 rounded-3xl p-8 md:p-12 border border-white/30 relative z-10 flex flex-col md:flex-row items-center gap-8 shadow-inner">
                     <div class="flex-1 space-y-6 text-center md:text-left">
                         <div>
@@ -312,7 +288,7 @@
                         </div>
                         
                         <p class="text-sm font-semibold leading-relaxed text-purple-900">
-                            Currently a student at the American International School of Budapest, he is set to graduate in 2030. He alone founded the organization along with creating the lead innovations himself.
+                            Currently a student at the American International School of Budapest, set to graduate in 2030. He alone founded the organization along with creating lead innovations himself.
                         </p>
 
                         <div class="py-2 border-t border-b border-purple-950/10">
@@ -326,23 +302,20 @@
                                 <span class="font-bold block tracking-wider text-xs">DSIndieAI</span>
                                 <a href="https://dsindieai-website.vercel.app" target="_blank" class="underline text-xs font-mono font-bold hover:text-purple-700">dsindieai-website.vercel.app</a>
                             </div>
-                            <!-- Logo integrated in lower right corner of card -->
                             <div class="w-12 h-12 bg-purple-300/50 rounded-xl p-1.5 flex items-center justify-center">
-                                <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.36.png';">
+                                <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/48x48/6366f1/ffffff?text=DS';">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Portrait Picture side -->
                     <div class="w-full md:w-64 h-64 rounded-3xl overflow-hidden shadow-md border-4 border-white/40">
-                        <img src="https://i.ibb.co/gFMyXFQ5/image.jpg" alt="David Image Inside Card" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.21.jpg'; this.onerror=function(){this.src='https://placehold.co/600x400/1e1b4b/818cf8?text=David+I.K.+Portrait';}">
+                        <img src="https://i.ibb.co/gFMyXFQ5/image.jpg" alt="David Image Inside Card" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e1b4b/818cf8?text=David+I.K.+Portrait';">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Organization Collaborations Section -->
     <section id="collabs" class="py-24 px-6 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -352,7 +325,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Collab Card 1: Linum Nagykovácsi -->
                 <div class="collab-card glass p-8 rounded-3xl border border-white/5 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -top-12 -right-12 w-24 h-24 bg-emerald-500/10 blur-2xl rounded-full"></div>
                     <div>
@@ -361,7 +333,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">Nagykovácsi Linum</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            A Hungarian mall in the Nagykovácsi village collaborate with us to deploy a bin to collect bottle caps which will be connected to the Cap Collective Pipeline.
+                            A Hungarian mall in the Nagykovácsi village collaborating with us to deploy a bin to collect bottle caps connected directly to the Cap Collective Pipeline.
                         </p>
                     </div>
                     <div class="flex items-center justify-between text-xs font-mono pt-4 border-t border-white/5 text-slate-500">
@@ -370,7 +342,6 @@
                     </div>
                 </div>
 
-                <!-- Collab Card 2: AISB Educational Labs -->
                 <div class="collab-card glass p-8 rounded-3xl border border-white/5 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -top-12 -right-12 w-24 h-24 bg-indigo-500/10 blur-2xl rounded-full"></div>
                     <div>
@@ -379,7 +350,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">American School of Budapest</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Helping as the software and engineering maker. Supporting student life and requests, study workflow deployments via StudyHub iterations, and advanced collaboration environment like LearningFans.
+                            Helping as the software and engineering maker. Supporting student requests, study workflows via StudyHub iterations, and advanced collaboration environments.
                         </p>
                     </div>
                     <div class="flex items-center justify-between text-xs font-mono pt-4 border-t border-white/5 text-slate-500">
@@ -388,7 +359,6 @@
                     </div>
                 </div>
 
-                <!-- Collab Card 3: Sustainable Systems Alliance -->
                 <div class="collab-card glass p-8 rounded-3xl border border-white/5 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -top-12 -right-12 w-24 h-24 bg-purple-500/10 blur-2xl rounded-full"></div>
                     <div>
@@ -397,7 +367,7 @@
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">Changemakers</h3>
                         <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Developing social-collaboration networks and sustainable architectures to lessen the technology carbon impact while providing engineering solutions.
+                            Developing social-collaboration networks and sustainable architectures to lessen tech carbon impact while providing high-impact engineering solutions.
                         </p>
                     </div>
                     <div class="flex items-center justify-between text-xs font-mono pt-4 border-t border-white/5 text-slate-500">
@@ -409,13 +379,13 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 px-6 bg-slate-900/20">
+    <section id="projects" class="py-24 px-6 bg-slate-900/30 border-t border-white/5">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                 <div>
-                    <h2 class="text-4xl font-extrabold mb-4">Project Ecosystem</h2>
-                    <p class="text-slate-400">Filtering the full DSIndieAI repository of tools, research, and platforms.</p>
+                    <span class="text-xs font-mono tracking-widest text-indigo-400 uppercase">[ COMPLETE INDEX ]</span>
+                    <h2 class="text-4xl font-extrabold mb-2 mt-1">Project Ecosystem</h2>
+                    <p class="text-slate-400">Filtering the full DSIndieAI repository of web platforms, AI architectures, and utilities.</p>
                 </div>
                 <div class="flex flex-wrap gap-2 glass p-1.5 rounded-2xl border border-white/5">
                     <button class="filter-btn active px-6 py-2 rounded-xl text-xs font-bold transition-all" onclick="filterProjects('all', this)">ALL</button>
@@ -427,13 +397,12 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="projects-container">
-                <!-- Populated dynamically via JS -->
+                <!-- Dynamically rendered via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Research Focused Section -->
-    <section id="research" class="py-24 px-6">
+    <section id="research" class="py-24 px-6 border-t border-white/5">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="relative">
@@ -441,47 +410,44 @@
                     <div class="relative glass p-4 rounded-3xl overflow-hidden">
                         <div class="bg-slate-950 rounded-2xl p-6 font-mono text-xs text-indigo-300">
                             <div class="flex justify-between border-b border-white/10 pb-2 mb-4">
-                                <span>robotics_system_architecture.py</span>
+                                <span>multillm_consensus_engine.py</span>
                                 <span class="text-slate-500">Python 3.13</span>
                             </div>
                             <div class="space-y-1">
-                                <p><span class="text-purple-400">import</span> numpy <span class="text-purple-400">as</span> np</p>
-                                <p><span class="text-purple-400">from</span> sensory_bot <span class="text-purple-400">import</span> TelemetryEngine</p>
-                                <p><span class="text-purple-400">from</span> systems_architecture <span class="text-purple-400">import</span> DistributedRouter</p>
+                                <p><span class="text-purple-400">import</span> asyncio</p>
+                                <p><span class="text-purple-400">from</span> dsindieai.agents <span class="text-purple-400">import</span> CrossEvaluator, BiasFilter</p>
                                 <p>&nbsp;</p>
-                                <p><span class="text-slate-500"># Merging Physical Mechatronics & Software Architecture</span></p>
-                                <p>engine = TelemetryEngine(port=<span class="text-emerald-400">"/dev/ttyUSB0"</span>)</p>
-                                <p>router = DistributedRouter(endpoint=<span class="text-emerald-400">"https://api.dsindieai.org"</span>)</p>
-                                <p>&nbsp;</p>
-                                <p><span class="text-purple-400">def</span> <span class="text-blue-400">broadcast_kinematic_mesh</span>():</p>
-                                <p class="pl-4">raw_matrix = engine.read_spatial_data()</p>
-                                <p class="pl-4">payload = router.compress_packet(raw_matrix)</p>
-                                <p class="pl-4"><span class="text-purple-400">return</span> router.broadcast_to_agents(payload)</p>
+                                <p><span class="text-slate-500"># MultiLLM Consensus Architecture</span></p>
+                                <p><span class="text-purple-400">async def</span> <span class="text-blue-400">synthesize_consensus</span>(prompt: str):</p>
+                                <p class="pl-4">evaluator = CrossEvaluator(models=[<span class="text-emerald-400">"TobiAI"</span>, <span class="text-emerald-400">"EvaGPT"</span>])</p>
+                                <p class="pl-4">raw_responses = <span class="text-purple-400">await</span> evaluator.parallel_query(prompt)</p>
+                                <p class="pl-4">clean_output = BiasFilter.sanitize(raw_responses)</p>
+                                <p class="pl-4"><span class="text-purple-400">return</span> clean_output</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div class="research-badge mb-4 inline-block">Active Lab: Robotics & Systems Architecture</div>
-                    <h2 class="text-4xl font-extrabold mb-8">Robotics & <br><span class="text-indigo-400">Systems Architecture Innovation</span></h2>
+                    <div class="research-badge mb-4 inline-block">Active Lab: MultiLLM & Systems Research</div>
+                    <h2 class="text-4xl font-extrabold mb-8">MultiLLM & <br><span class="text-indigo-400">Systems Architecture Innovation</span></h2>
                     <div class="space-y-8">
                         <div class="group">
                             <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
-                                <i class="fa-solid fa-satellite-dish mr-3 text-cyan-400"></i> Sensory Bot & Telemetry
+                                <i class="fa-solid fa-brain mr-3 text-purple-400"></i> MultiLLM Consensus Architecture
                             </h3>
                             <p class="text-slate-400 text-sm leading-relaxed">
-                                Developing spatial and environmental sensory micro-bots. Utilizing custom, highly optimized edge configurations to stream and record 3D physical coordinate meshes and multi-sensor data points.
+                                Universal acclaim architecture removing bias and hallucinations in LLM outputs with cross-evaluating and cross-collaborating autonomous AI agents.
                             </p>
-                            <a href="https://github.com/imredavid64-glitch/sensory-bot" target="_blank" class="text-xs font-bold text-cyan-400 mt-4 inline-block hover:underline">EXPLORE HARDWARE SCHEMATICS →</a>
+                            <a href="https://github.com/imredavid64-glitch/MultiLLM" target="_blank" class="text-xs font-bold text-purple-400 mt-4 inline-block hover:underline">EXPLORE MULTILLM REPO →</a>
                         </div>
                         <div class="group">
                             <h3 class="text-xl font-bold mb-3 flex items-center group-hover:text-indigo-300 transition-colors">
-                                <i class="fa-solid fa-water mr-3 text-indigo-400"></i> Sea Perch Underwater Simulation
+                                <i class="fa-solid fa-water mr-3 text-indigo-400"></i> Sea Perch Underwater Simulator
                             </h3>
                             <p class="text-slate-400 text-sm leading-relaxed">
-                                Engineering fluid-dynamics solvers and virtual test chambers for underwater robotic hulls. This links high-fidelity physics calculations directly with virtual software-driven feedback channels.
+                                Fluid-dynamics software simulation environment for underwater ROV robotics testing with real-time physics designed for SeaPerch competition readiness.
                             </p>
-                            <a href="https://github.com/imredavid64-glitch/sea-perch-sim" target="_blank" class="text-xs font-bold text-indigo-400 mt-4 inline-block hover:underline">OPEN PHYSICS CORE →</a>
+                            <a href="https://github.com/imredavid64-glitch/sea-perch-sim" target="_blank" class="text-xs font-bold text-indigo-400 mt-4 inline-block hover:underline">OPEN SEA PERCH SIM REPO →</a>
                         </div>
                     </div>
                 </div>
@@ -489,16 +455,15 @@
         </div>
     </section>
 
-    <!-- Roadmap Section -->
     <section id="roadmap" class="py-24 px-6 glass border-y border-white/5">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-4xl font-extrabold mb-4">Trajectory</h2>
-            <p class="text-slate-400 mb-16">Evolving from simple apps to complex research ecosystems.</p>
+            <p class="text-slate-400 mb-16">Evolving from standalone utilities to an integrated research ecosystem.</p>
             <div class="grid md:grid-cols-4 gap-4 text-left">
                 <div class="p-6 bg-indigo-600/10 rounded-2xl border border-indigo-500/20">
                     <div class="text-[10px] font-bold text-indigo-400 mb-2 uppercase">Phase 01</div>
                     <h4 class="font-bold mb-2">Foundation</h4>
-                    <p class="text-xs text-slate-400">Launch of TobiAI & basic StudyHub infrastructure.</p>
+                    <p class="text-xs text-slate-400">Launch of TobiAI, StudyHub, and core web platform suite.</p>
                     <div class="mt-4 flex items-center text-emerald-400 text-[10px] font-bold">
                         <i class="fa-solid fa-circle-check mr-2"></i> COMPLETE
                     </div>
@@ -506,7 +471,7 @@
                 <div class="p-6 bg-indigo-600/20 rounded-2xl border border-indigo-500/40">
                     <div class="text-[10px] font-bold text-indigo-400 mb-2 uppercase">Phase 02</div>
                     <h4 class="font-bold mb-2">Research Labs</h4>
-                    <p class="text-xs text-slate-400">IoT Bot and Software, Sensory Telemetry & AI Model simulations and training.</p>
+                    <p class="text-xs text-slate-400">MultiLLM consensus, SeaPerch physics simulation, and Cap Collective IoT.</p>
                     <div class="mt-4 flex items-center text-indigo-400 text-[10px] font-bold">
                         <i class="fa-solid fa-spinner fa-spin mr-2"></i> IN PROGRESS
                     </div>
@@ -514,18 +479,117 @@
                 <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
                     <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 03</div>
                     <h4 class="font-bold mb-2">Neural Hub</h4>
-                    <p class="text-xs text-slate-400">Unified dashboard for changemakers, launching "Changers", then LearningFans.</p>
+                    <p class="text-xs text-slate-400">Unified dashboard for changemakers, launching Changers Space and Learning Fans.</p>
                 </div>
                 <div class="p-6 bg-white/5 rounded-2xl border border-white/5 opacity-60">
                     <div class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Phase 04</div>
-                    <h4 class="font-bold mb-2">Hardware-AI</h4>
-                    <p class="text-xs text-slate-400">Integration with physical ESP-IDF edge devices and AI Keychains.</p>
+                    <h4 class="font-bold mb-2">Hardware Integration</h4>
+                    <p class="text-xs text-slate-400">Microcontroller edge sensors, ESP-IDF hardware, and AI Keychain devices.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Contact Section (Direct Email Contacts replacing broken Support Modal) -->
+    <section id="careers" class="py-24 px-6 relative border-b border-white/5 bg-slate-900/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1.5 glass rounded-full text-indigo-400 text-xs font-bold mb-4 border border-indigo-500/30">
+                    <i class="fa-solid fa-users-gear mr-2"></i> JOIN THE ECOSYSTEM
+                </div>
+                <h2 class="text-4xl font-extrabold text-white">Open Roles & Collaborations</h2>
+                <p class="text-slate-400 mt-3 max-w-2xl mx-auto text-sm md:text-base">
+                    DSIndieAI is expanding. We are seeking passionate collaborators, researchers, and builders to shape our hardware, research, and platform initiatives.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Role 1: Business Analyst -->
+                <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-indigo-500/50 transition-all duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-indigo-500/10 text-indigo-300 text-[10px] font-bold rounded-full font-mono uppercase">Strategy</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Business Analyst</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Identifies real-world problems that can be solved by the organization, formulates strategic insights, and maps out actionable, reasonable steps for project expansion and deployment.
+                        </p>
+                    </div>
+                    <div>
+                        <button onclick="applyForRole('Business Analyst')" class="w-full py-3 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-200 hover:text-white rounded-xl text-xs font-bold flex items-center justify-center transition-all cursor-pointer">
+                            Apply / Inquire <i class="fa-solid fa-arrow-down ml-2 text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Role 2: Research Editor -->
+                <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-purple-500/50 transition-all duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-purple-500/10 text-purple-300 text-[10px] font-bold rounded-full font-mono uppercase">Research</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">Research Editor</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Edits, verifies, and co-authors academic papers, research documentations, and experiment write-ups closely alongside the founder.
+                        </p>
+                    </div>
+                    <div>
+                        <button onclick="applyForRole('Research Editor')" class="w-full py-3 bg-purple-600/20 hover:bg-purple-600 text-purple-200 hover:text-white rounded-xl text-xs font-bold flex items-center justify-center transition-all cursor-pointer">
+                            Apply / Inquire <i class="fa-solid fa-arrow-down ml-2 text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Role 3: Content Creator -->
+                <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-red-500/50 transition-all duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-red-500/10 text-red-400 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-red-500/10 text-red-300 text-[10px] font-bold rounded-full font-mono uppercase">Media</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-red-300 transition-colors">Content Creator</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Manages the organization's official YouTube channel, creates educational visual media, and drives media production for the Learning Fans platform.
+                        </p>
+                    </div>
+                    <div>
+                        <button onclick="applyForRole('Content Creator')" class="w-full py-3 bg-red-600/20 hover:bg-red-600 text-red-200 hover:text-white rounded-xl text-xs font-bold flex items-center justify-center transition-all cursor-pointer">
+                            Apply / Inquire <i class="fa-solid fa-arrow-down ml-2 text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Role 4: Codebase Checker -->
+                <div class="glass p-8 rounded-3xl border border-white/10 flex flex-col justify-between group hover:border-emerald-500/50 transition-all duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-300 text-[10px] font-bold rounded-full font-mono uppercase">DevOps</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">Codebase Checker</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            Monitors overall database health, codebase integrity, multi-repository stability, and ensures continuous system hygiene across deployments.
+                        </p>
+                    </div>
+                    <div>
+                        <button onclick="applyForRole('Codebase Checker')" class="w-full py-3 bg-emerald-600/20 hover:bg-emerald-600 text-emerald-200 hover:text-white rounded-xl text-xs font-bold flex items-center justify-center transition-all cursor-pointer">
+                            Apply / Inquire <i class="fa-solid fa-arrow-down ml-2 text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="py-24 px-6 text-center">
         <div class="max-w-4xl mx-auto glass p-12 rounded-[3rem] border border-white/10 relative overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-transparent"></div>
@@ -533,12 +597,18 @@
             
             <span class="text-xs font-mono tracking-widest text-indigo-400 uppercase">[ SYSTEM CONTACT PLATFORM ]</span>
             <h2 class="text-4xl font-extrabold mb-4 mt-2">Technical Assistance & Inquiries</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto font-light leading-relaxed text-sm md:text-base">
-                Connect directly for research partnerships, technical integration issues, or specific software/hardware inquiries.
+            <p class="text-slate-400 mb-6 max-w-xl mx-auto font-light leading-relaxed text-sm md:text-base">
+                Connect directly for research partnerships, technical integration issues, or role inquiries.
             </p>
 
+            <!-- Dynamic Selected Role Indicator Banner -->
+            <div id="selected-role-notice" class="hidden mb-8 p-4 bg-indigo-500/20 border border-indigo-500/40 rounded-2xl text-indigo-200 text-xs font-mono flex items-center justify-between max-w-xl mx-auto">
+                <span class="flex items-center"><i class="fa-solid fa-paper-plane mr-2 text-indigo-400 animate-pulse"></i> Inquiring for position: <strong id="selected-role-title" class="text-white ml-1 font-sans font-bold"></strong></span>
+                <button onclick="document.getElementById('selected-role-notice').classList.add('hidden')" class="text-slate-400 hover:text-white ml-2 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
             <div class="grid md:grid-cols-2 gap-6 text-left relative z-10 mt-6">
-                <!-- Academic / School Email Card -->
+                <!-- Academic Email Card -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-between hover:border-indigo-500/30 transition-all">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -555,13 +625,13 @@
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
-                        <a href="mailto:30dimrekatai@student.aisb.hu" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-xs font-bold rounded-xl transition-all text-white flex items-center justify-center gap-2">
+                        <a id="contact-school-email-link" href="mailto:30dimrekatai@student.aisb.hu" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-xs font-bold rounded-xl transition-all text-white flex items-center justify-center gap-2">
                             <i class="fa-solid fa-paper-plane text-[10px]"></i> Send Mail
                         </a>
                     </div>
                 </div>
 
-                <!-- Formal / General Email Card -->
+                <!-- Formal Email Card -->
                 <div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-between hover:border-purple-500/30 transition-all">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -578,7 +648,7 @@
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
-                        <a href="mailto:davidimrekatai@gmail.com" class="w-full py-2.5 bg-purple-600 hover:bg-purple-700 text-xs font-bold rounded-xl transition-all text-white flex items-center justify-center gap-2">
+                        <a id="contact-formal-email-link" href="mailto:davidimrekatai@gmail.com" class="w-full py-2.5 bg-purple-600 hover:bg-purple-700 text-xs font-bold rounded-xl transition-all text-white flex items-center justify-center gap-2">
                             <i class="fa-solid fa-paper-plane text-[10px]"></i> Send Mail
                         </a>
                     </div>
@@ -587,13 +657,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-20 px-6 border-t border-white/5 bg-slate-950/20">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-6">
                     <div class="w-8 h-8 bg-indigo-950/40 rounded-md flex items-center justify-center border border-indigo-500/20 overflow-hidden p-1">
-                        <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='Screenshot 2026-06-29 at 0.34.36.png';">
+                        <img src="Screenshot 2026-06-29 at 0.34.36_2.png" alt="DSIndieAI Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/32x32/6366f1/ffffff?text=DS';">
                     </div>
                     <span class="text-lg font-bold text-white">DSIndieAI</span>
                 </div>
@@ -604,9 +673,9 @@
             <div>
                 <h5 class="font-bold mb-6 text-sm text-slate-200">Featured Work</h5>
                 <ul class="space-y-4 text-sm text-slate-500">
-                    <li><a href="https://github.com/imredavid64-glitch/Medic-Experiment" class="hover:text-white transition-colors">Medic-Experiment</a></li>
-                    <li><a href="https://tobiai.vercel.app" class="hover:text-white transition-colors">TobiAI Platform</a></li>
-                    <li><a href="https://github.com/imredavid64-glitch/sea-perch-sim" class="hover:text-white transition-colors">Sea Perch Sim</a></li>
+                    <li><a href="https://tobi-website.vercel.app/" target="_blank" class="hover:text-white transition-colors">TobiAI Platform</a></li>
+                    <li><a href="https://github.com/imredavid64-glitch/Medic-Experiment" target="_blank" class="hover:text-white transition-colors">Medic-Experiment</a></li>
+                    <li><a href="https://github.com/imredavid64-glitch/sea-perch-sim" target="_blank" class="hover:text-white transition-colors">Sea Perch Sim</a></li>
                 </ul>
             </div>
             <div>
@@ -628,67 +697,62 @@
 
     <script>
         const profileUrl = "https://github.com/imredavid64-glitch";
+
+        // Full dataset of all 43 Repositories and Live Applications
         const projects = [
-            // Core Legacy & Verified Public Repos from Screenshot 2026-06-29 at 0.34.36_2.png index
-            { name: "Medic-Experiment", url: `${profileUrl}/Medic-Experiment`, desc: "This is the source code for the Medic! AI Bias experiment. All code, data, and guides are sourced here.", icon: "fa-microscope", tag: "research", color: "red" },
-            { name: "Low Data Bias", url: profileUrl, desc: "Agent-based simulation researching AI behavior in low-data environments.", icon: "fa-vial", tag: "research", color: "indigo" },
-            { name: "TobiAI", url: "https://tobiai.vercel.app", desc: "Intelligent companion & personal AI assist platform.", icon: "fa-robot", tag: "ai", color: "indigo" },
-            { name: "TobiAI-CLI", url: `${profileUrl}/tobiai-cli`, desc: "Command line interface for interacting with TobiAI systems.", icon: "fa-terminal", tag: "utility", color: "slate" },
-            { name: "StudyHub Core", url: "https://studyhub-seven-tawny.vercel.app", desc: "Main educational portal for research and notes.", icon: "fa-book-open", tag: "edu", color: "blue" },
-            { name: "StudyHub 2", url: "https://studyhub2-two.vercel.app", desc: "Next-generation workspace with collaborative features.", icon: "fa-graduation-cap", tag: "edu", color: "purple" },
-            { name: "Sea Perch Sim", url: `${profileUrl}/sea-perch-sim`, desc: "SeaPerch simulator! Physics-based underwater robotics simulation suite.", icon: "fa-water", tag: "sim", color: "cyan" },
-            { name: "Aura Buddy", url: "https://aura-buddy-azure.vercel.app", desc: "Ambient UI companion for workflow optimization.", icon: "fa-sparkles", tag: "utility", color: "pink" },
-            { name: "Aura-Buddy-Extension", url: `${profileUrl}/aura-buddy-extension`, desc: "Browser extension for the Aura Buddy companion.", icon: "fa-puzzle-piece", tag: "utility", color: "pink" },
-            { name: "Cap Analyzer", url: "https://bottle-cap-analyzer.vercel.app", desc: "Computer vision toolkit for physical object identification and analysis.", icon: "fa-camera-rotate", tag: "utility", color: "emerald" },
-            { name: "Cap Tracker", url: "https://bottle-cap-tracker.vercel.app", desc: "Data dashboard for collection and visual inventory of bottle caps.", icon: "fa-list-check", tag: "utility", color: "orange" },
-            { name: "Changy Website", url: "https://changy-website.vercel.app", desc: "All-in-one Data Science IDE", icon: "fa-palette", tag: "design", color: "rose" },
-            { name: "FlowWeb", url: "https://flowweb-tan.vercel.app", desc: "Streamlined navigation and workflow management hub.", icon: "fa-wind", tag: "utility", color: "sky" },
-            { name: "Rush E Makey", url: `${profileUrl}/rush-e-makey-makey`, desc: "Connect a makey makey, a banana, and play!", icon: "fa-music", tag: "utility", color: "violet" },
-            { name: "Grader Jet", url: "https://grader-jet.vercel.app", desc: "Automated assessment and performance tracking.", icon: "fa-plane-up", tag: "edu", color: "amber" },
-            { name: "DS-Notes", url: `${profileUrl}`, desc: "Centralized markdown repository for research and notes.", icon: "fa-note-sticky", tag: "edu", color: "teal" },
-            { name: "Help Center", url: "#contact", desc: "Official direct channels for school inquiries and formal correspondence.", icon: "fa-envelope", tag: "utility", color: "slate" },
-            
-            // Middle Wave Repos
-            { name: "AI-Research-Tool", url: `${profileUrl}/ai-research-tool`, desc: "Advanced framework for analyzing neural network outputs.", icon: "fa-magnifying-glass-chart", tag: "research", color: "blue" },
-            { name: "Indie-OS-Core", url: `${profileUrl}/indie-os-core`, desc: "Lightweight kernel simulation for embedded AI systems.", icon: "fa-microchip", tag: "utility", color: "emerald" },
-            { name: "Physics-ML-Bridge", url: `${profileUrl}/physics-ml-bridge`, desc: "Integrating machine learning models into classical physics simulations.", icon: "fa-atom", tag: "research", color: "orange" },
-            { name: "Multi-Agent-Sim", url: `${profileUrl}/multi-agent-sim`, desc: "Platform for simulating interaction between multiple AI agents.", icon: "fa-people-group", tag: "ai", color: "violet" },
-            { name: "Edu-Nexus-API", url: `${profileUrl}/edu-nexus-api`, desc: "Backend infrastructure for the StudyHub ecosystem.", icon: "fa-server", tag: "edu", color: "teal" },
-            { name: "Vision-Guard", url: `${profileUrl}/vision-guard`, desc: "Real-time image classification and safety filtering system.", icon: "fa-eye", tag: "ai", color: "rose" },
-            { name: "Lab-Inventory", url: `${profileUrl}/lab-inventory`, desc: "Tracking system for physical and digital research assets.", icon: "fa-box-archive", tag: "utility", color: "amber" },
-            { name: "Cognitive-Sync", url: `${profileUrl}/cognitive-sync`, desc: "Data synchronization tool for AI-enhanced workflows.", icon: "fa-arrows-rotate", tag: "utility", color: "sky" },
+            { name: "Aura Buddy", url: "https://aura-buddy-azure.vercel.app/", repoUrl: `${profileUrl}/aura-buddy`, desc: "An interactive digital assistant app designed to provide mood tracking, daily reflections, and motivational feedback.", icon: "fa-sparkles", tag: "utility", color: "pink" },
+            { name: "Cap Tracker", url: "https://bottle-cap-tracker.vercel.app", repoUrl: `${profileUrl}/bottle-cap-tracker`, desc: "A web application for counting, logging, and analyzing plastic bottle caps collected during recycling drives, complete with local analysis fallbacks.", icon: "fa-list-check", tag: "utility", color: "orange" },
+            { name: "Grader Jet", url: "https://grader-jet.vercel.app", repoUrl: `${profileUrl}/Grader`, desc: "An automated grading script/utility for evaluating code submissions, math problems, or student test scores.", icon: "fa-plane-up", tag: "edu", color: "amber" },
+            { name: "Learning Fans", url: "https://learningfans.vercel.app", repoUrl: `${profileUrl}/learningfans`, desc: "An interactive portal offering customized educational modules and study tools for safe collaborations.", icon: "fa-clapperboard", tag: "edu", color: "pink" },
+            { name: "TobiAI Platform", url: "https://tobi-website.vercel.app/", repoUrl: `${profileUrl}/tobiai`, desc: "An AI chat and workflow assistant platform built for personalized task management for bringing AI to Hungary. Featuring the edge DSIndieAI MultiLLM architecture.", icon: "fa-robot", tag: "ai", color: "indigo" },
+            { name: "Omni Choice", url: "https://omni-choice.vercel.app/", repoUrl: `${profileUrl}/omni-choice`, desc: "An application made to help buying choices to make literate decisions through weighted parameters.", icon: "fa-scale-balanced", tag: "utility", color: "teal" },
+            { name: "AI Platform Builder", url: "https://ai-platform-builder.vercel.app/", repoUrl: `${profileUrl}/ai-platform-builder`, desc: "A flexible backend service for creating AI models, training them, and having those create entire platforms for you all under clicks and no code.", icon: "fa-cubes-stacked", tag: "ai", color: "violet" },
+            { name: "Cap Analyzer", url: "https://bottle-cap-analyzer.vercel.app", repoUrl: `${profileUrl}/Bottle-Cap-Analyzer`, desc: "A computer vision/data processing script focused on calculating material weight, type, and count for recycled plastic caps with edge AI API.", icon: "fa-camera-rotate", tag: "utility", color: "emerald" },
+            { name: "Dohány Zsinagóga", url: "https://dohany-zsinagoga.vercel.app/", repoUrl: `${profileUrl}/dohany-zsinagoga`, desc: "An informative web application highlighting the Dohány Street Synagogue, complete with bilingual Hungarian/English switching and soon to be live updates.", icon: "fa-synagogue", tag: "edu", color: "blue" },
+            { name: "Study Hub Core", url: "https://study-hub-plum-omega.vercel.app", repoUrl: `${profileUrl}/study-hub`, desc: "The primary multi-subject study suite offering research proven study tools, autism learning support, and AI assisted learning.", icon: "fa-book-open", tag: "edu", color: "blue" },
+            { name: "Flow Language Web", url: "https://flowweb-tan.vercel.app/", repoUrl: `${profileUrl}/Flow`, desc: "The high level programming language, but in plain english where you execute like a machine, and write like a human.", icon: "fa-code-branch", tag: "utility", color: "sky" },
+            { name: "Math Finder 8th Grade", url: "https://math-finder-one.vercel.app/", repoUrl: `${profileUrl}/math-finder`, desc: "An educational math quiz platform for 8th graders made to solve the dullness of studying to making it more fun.", icon: "fa-calculator", tag: "edu", color: "indigo" },
+            { name: "Changy Landing Site", url: "https://changy-website.vercel.app/", repoUrl: `${profileUrl}/Changy-website`, desc: "The landing site and public download of the Changy data analysis app. Perfect for data scientists for upgrade analysis with a DuckDB Engine, AI Infrastructure, Hybrid Analysis, Reactive UI.", icon: "fa-palette", tag: "ai", color: "rose" },
+            { name: "Luca Goodbye Tribute", url: "https://lucagoodbye.vercel.app", repoUrl: `${profileUrl}/lucagoodbye`, desc: "A personal memory, farewell tribute, to a friend where a database connected website with letters from students was made. Now finished.", icon: "fa-heart", tag: "edu", color: "rose" },
+            { name: "Changy Help Center", url: "https://changy-website-help-center.vercel.app/", repoUrl: `${profileUrl}/changy-website-help-center`, desc: "A knowledge base and help desk interface designed to answer questions about the Changy data platform.", icon: "fa-circle-question", tag: "utility", color: "sky" },
+            { name: "Omnishield Security", url: "https://omnishield.vercel.app/", repoUrl: `${profileUrl}/omnishield`, desc: "A security or input-sanitization library created to protect applications from malicious input injections.", icon: "fa-shield", tag: "utility", color: "emerald" },
 
-            // Environmental, Companion & Social Core (Telemetries)
-            { name: "Sensory Bot", url: `${profileUrl}/sensory-bot`, desc: "An intelligent physical robot that senses environmental dynamics & records data.", icon: "fa-satellite-dish", tag: "research", color: "cyan" },
-            { name: "AI Keychain", url: `${profileUrl}/ai-keychain`, desc: "Portable physical smart keychain designed as a personalized AI assistant.", icon: "fa-key", tag: "ai", color: "violet" },
-            { name: "StudyHub v3.0", url: `https://studyhub3-three.vercel.app`, desc: "Brand new iteration build focusing on structured study workflows.", icon: "fa-graduation-cap", tag: "edu", color: "blue" },
-            { name: "Learning Fans", url: `${profileUrl}/learning-fans`, desc: "A creative digital medium workspace specializing in deep student engagement.", icon: "fa-clapperboard", tag: "edu", color: "pink" },
-            { name: "Changers Space", url: `${profileUrl}/changers`, desc: "An upcoming dedicated social network architecture built for global changemakers.", icon: "fa-users-viewfinder", tag: "ai", color: "emerald" },
-            { name: "Bottle Cap Counter", url: `https://bottle-cap-analyzer.vercel.app`, desc: "Vision-based hardware & software system dedicated to counting collected caps.", icon: "fa-calculator", tag: "utility", color: "orange" },
-            { name: "Linum Collector", url: `${profileUrl}/linum-collector`, desc: "Ecological local project in Nagykovácsi for physical bottle cap collecting.", icon: "fa-recycle", tag: "utility", color: "teal" },
-
-            // Verified NEW Public Repositories (Only Public ones added)
-            { name: "Sustainable AI Search", url: `${profileUrl}/sustainable-ai-architecture`, desc: "An open repository dedicated to designing green, highly-optimized AI and neural search structures.", icon: "fa-leaf", tag: "research", color: "emerald" },
-            { name: "Pi Scanner", url: `${profileUrl}/pi-scanner`, desc: "A versatile, automated script mapping and diagnosing hardware systems across networked clusters.", icon: "fa-network-wired", tag: "utility", color: "red" },
-            { name: "8th Grade Math Grader", url: `${profileUrl}/end-of-year-math-exam-for-8th-graders`, desc: "A custom testing matrix environment serving structured evaluation models for algebra and geometry exams.", icon: "fa-calculator", tag: "edu", color: "indigo" },
-            { name: "Pi To-Do", url: `${profileUrl}/pi-to-do`, desc: "Headless scheduler script designed specifically for terminal efficiency and tasks.", icon: "fa-circle-check", tag: "utility", color: "amber" },
-            { name: "MultiLLM Agent", url: `${profileUrl}/MultiLLM`, desc: "A consensus module orchestrating multiple large language models synchronously.", icon: "fa-brain", tag: "ai", color: "purple" },
-            { name: "NumPy Custom Stack", url: `${profileUrl}/numpy`, desc: "A highly-optimized array manipulation extension fork from NumPy core libraries.", icon: "fa-cubes", tag: "utility", color: "sky" },
-            { name: "Changer Toolset", url: `${profileUrl}/Changer`, desc: "Dynamic script suite that structures and maps local change campaigns.", icon: "fa-earth-americas", tag: "ai", color: "teal" },
-            { name: "Changy Engine", url: `${profileUrl}/Changy`, desc: "A full-stack Data & AI workspace featuring a FastAPI backend, React frontend, and DuckDB integration.", icon: "fa-database", tag: "ai", color: "indigo" },
-            { name: "Flow execution engine", url: `${profileUrl}/Flow`, desc: "Low-overhead task pipeline execution script prioritizing concurrency.", icon: "fa-code-branch", tag: "utility", color: "slate" },
-            { name: "Web Debugger Test", url: `${profileUrl}/debugger-code-test`, desc: "Gemini-powered workspace sandbox supporting live testing pipelines.", icon: "fa-bug", tag: "utility", color: "rose" },
-            { name: "DataGrabber Catcher", url: `${profileUrl}/datagrabber`, desc: "Information gatherer system transforming plain unstructured web data into indexed nodes.", icon: "fa-download", tag: "utility", color: "cyan" },
-            { name: "Hybra Agent Calc", url: `${profileUrl}/hybra-calculator`, desc: "A functional scientific engine supporting automated workflow optimization agents.", icon: "fa-square-root-variable", tag: "utility", color: "violet" },
-            { name: "Organization Gateway", url: `${profileUrl}/imredavid64-glitch.github.io`, desc: "Landing server gateway and main web presentation deck built for DSIndieAI initiatives.", icon: "fa-globe", tag: "design", color: "pink" }
+            // GitHub Repositories (Falling back directly to repo link)
+            { name: "Analog Horrors", url: null, repoUrl: `${profileUrl}/analog-horrors.github.io`, desc: "A website dedicated to creating disturbing analog horror settings, media design, and retro aesthetic projects. Made as a fan of analog horror. Currently down.", icon: "fa-tv", tag: "utility", color: "slate" },
+            { name: "Changers Space", url: null, repoUrl: `${profileUrl}/changers`, desc: "A productivity and collaboration platform for the Changemakers Conference.", icon: "fa-users-viewfinder", tag: "ai", color: "emerald" },
+            { name: "House Social", url: null, repoUrl: `${profileUrl}/house`, desc: "A web app or hardware integration project designed as a personal friend group locked social media. Soon to come public.", icon: "fa-house-lock", tag: "utility", color: "purple" },
+            { name: "Medic-Experiment", url: null, repoUrl: `${profileUrl}/Medic-Experiment`, desc: "An experimental tool exploring medical decision trees, health diagnostic triage, or biological simulation concepts.", icon: "fa-microscope", tag: "research", color: "red" },
+            { name: "Rush E Makey Makey", url: null, repoUrl: `${profileUrl}/rush-e-makey-makey`, desc: "An interactive microcontroller hardware project using Makey Makey to perform the song 'Rush E' via physical inputs. This is a joke project which functioned.", icon: "fa-music", tag: "utility", color: "amber" },
+            { name: "DataGrabber Catcher", url: null, repoUrl: `${profileUrl}/datagrabber`, desc: "A data extraction tool for scraping, formatting, and structuring web data into clean CSV or JSON data formats.", icon: "fa-download", tag: "utility", color: "cyan" },
+            { name: "Prompt Refiner", url: null, repoUrl: `${profileUrl}/prompt_refiner`, desc: "An AI utility that optimizes, expands, and structures raw user prompts to improve LLM generation outputs.", icon: "fa-wand-magic-sparkles", tag: "ai", color: "purple" },
+            { name: "DSIndieAI Core", url: null, repoUrl: `${profileUrl}/dsindieai`, desc: "The source code and landing pages representing the main software projects under the D'sIndieAI brand.", icon: "fa-shield-halved", tag: "research", color: "indigo" },
+            { name: "Changy DataStack", url: null, repoUrl: `${profileUrl}/Changy-DataStack`, desc: "The backend data engine built to manage states, databases, and analytics pipelines across the Changy product suite.", icon: "fa-server", tag: "ai", color: "amber" },
+            { name: "Changy Engine Repo", url: null, repoUrl: `${profileUrl}/Changy`, desc: "The core web application repo for the Changy data analysis application.", icon: "fa-database", tag: "ai", color: "indigo" },
+            { name: "Live Translation Engine", url: null, repoUrl: `${profileUrl}/translation`, desc: "A lightweight translation app/script for fast multi-language scanning and live speech detection specifically in formal environments, while providing language breakdowns.", icon: "fa-language", tag: "utility", color: "sky" },
+            { name: "MultiLLM Consensus", url: null, repoUrl: `${profileUrl}/MultiLLM`, desc: "The universal acclaim of DSIndieAI where this LLM architecture removes bias, hallucinations, and other problems in LLM outputs with cross collaborating and evaluation agents.", icon: "fa-brain", tag: "ai", color: "purple" },
+            { name: "Pokellector Tracker", url: null, repoUrl: `${profileUrl}/pokellector`, desc: "A trading card lookup application that scans card stores and checks live inventory with direct queries and tracks and builds your collections.", icon: "fa-layer-group", tag: "utility", color: "amber" },
+            { name: "StudyHub Legacy Repo", url: null, repoUrl: `${profileUrl}/studyhub`, desc: "An core repository build for centralizing notes, study schedules, and providing research proven learning methods. This is an older version.", icon: "fa-graduation-cap", tag: "edu", color: "blue" },
+            { name: "Cap Collective Project", url: null, repoUrl: `${profileUrl}/capcollective`, desc: "The website to the open source project Cap Collective where people recycle bottle caps in an IoT integrated system.", icon: "fa-recycle", tag: "utility", color: "teal" },
+            { name: "Hybra CAS Calculator", url: null, repoUrl: `${profileUrl}/hybra-calculator`, desc: "A hybrid algebraic CAS calculator tool designed to handle standard expressions, sequences, and advanced functional evaluations.", icon: "fa-square-root-variable", tag: "utility", color: "violet" },
+            { name: "EvaGPT Persona AI", url: null, repoUrl: `${profileUrl}/evagpt`, desc: "A specialized AI conversational persona wrapped in a clean, web-based chat interface. Made in effort to create AIs with personas.", icon: "fa-comments", tag: "ai", color: "pink" },
+            { name: "Speakology Better", url: null, repoUrl: `${profileUrl}/speakology-better`, desc: "An enhanced language learning tool built for speech practice, phonetics refinement, and fluency training.", icon: "fa-headset", tag: "edu", color: "indigo" },
+            { name: "Sustainable AI Architecture", url: null, repoUrl: `${profileUrl}/sustainable-ai-architecture`, desc: "Research code, benchmarks, and documentation exploring energy-efficient AI system designs and model deployments.", icon: "fa-leaf", tag: "research", color: "emerald" },
+            { name: "Sea Perch Simulator Repo", url: null, repoUrl: `${profileUrl}/sea-perch-sim`, desc: "A software simulation environment for underwater SeaPerch ROV robotics testing and controls. Has real time accurate physics, made for preparing for the SeaPerch competitions.", icon: "fa-water", tag: "research", color: "cyan" },
+            { name: "AI Content Protector", url: null, repoUrl: `${profileUrl}/AI-content-protector`, desc: "A digital safety tool designed to scan, detect, and safeguard proprietary content from unauthorized AI scraping.", icon: "fa-user-shield", tag: "ai", color: "rose" },
+            { name: "ExcellerAI Task Automation", url: null, repoUrl: `${profileUrl}/excellerai`, desc: "An AI-powered productivity tool engineered to automate spreadsheet workflows and tabular data transformations and complex work in Excel.", icon: "fa-file-excel", tag: "ai", color: "emerald" },
+            { name: "Grinder Quiz App", url: null, repoUrl: `${profileUrl}/grinder.github.io`, desc: "A web application for making quick quizzes to grind out problems.", icon: "fa-bolt", tag: "edu", color: "amber" },
+            { name: "8th Grade Math Exam Prep", url: null, repoUrl: `${profileUrl}/end-of-year-math-exam-for-8th-graders`, desc: "An interactive assessment tool and question bank tailored for 8th-grade math review and exam practice. Made during for students when in finals.", icon: "fa-file-signature", tag: "edu", color: "indigo" },
+            { name: "Pi To-Do Scheduler", url: null, repoUrl: `${profileUrl}/pi-to-do`, desc: "A task management app configured for deployment on Raspberry Pi hardware displays.", icon: "fa-list-check", tag: "utility", color: "orange" },
+            { name: "Web Debugger Sandbox", url: null, repoUrl: `${profileUrl}/debugger-code-test`, desc: "A testing sandbox repo for evaluating unit tests, edge-case debugging, and error handling protocols.", icon: "fa-bug", tag: "utility", color: "rose" },
+            { name: "Changemakers Conference App", url: null, repoUrl: `${profileUrl}/changemakers-app`, desc: "A community-focused application encouraging student-led initiatives, outreach events, and social impact projects. Made for the Changemakers Conference.", icon: "fa-hand-holding-heart", tag: "ai", color: "teal" }
         ];
 
         const container = document.getElementById('projects-container');
 
-        // Toggle card modal popup view
+        // Modal toggle function
         function toggleCardMockup() {
             const modal = document.getElementById('card-mockup-modal');
-            if(modal.classList.contains('hidden')) {
+            if (modal.classList.contains('hidden')) {
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             } else {
@@ -697,7 +761,28 @@
             }
         }
 
-        // Copy string helper functionality (optimized for cross-iframe browsers)
+        function applyForRole(roleName) {
+            const contactSec = document.getElementById('contact');
+            if (contactSec) {
+                contactSec.scrollIntoView({ behavior: 'smooth' });
+            }
+            const roleNotice = document.getElementById('selected-role-notice');
+            const roleTitle = document.getElementById('selected-role-title');
+            const formalEmailLink = document.getElementById('contact-formal-email-link');
+            const schoolEmailLink = document.getElementById('contact-school-email-link');
+            
+            if (roleNotice && roleTitle) {
+                roleTitle.innerText = roleName;
+                roleNotice.classList.remove('hidden');
+            }
+            if (formalEmailLink) {
+                formalEmailLink.href = `mailto:davidimrekatai@gmail.com?subject=Application:%20${encodeURIComponent(roleName)}%20Role`;
+            }
+            if (schoolEmailLink) {
+                schoolEmailLink.href = `mailto:30dimrekatai@student.aisb.hu?subject=Application:%20${encodeURIComponent(roleName)}%20Role`;
+            }
+        }
+
         function copyText(text, btnElement) {
             const dummy = document.createElement("textarea");
             document.body.appendChild(dummy);
@@ -706,7 +791,6 @@
             document.execCommand("copy");
             document.body.removeChild(dummy);
             
-            // Visual dynamic check state transition on trigger
             const icon = btnElement.querySelector('i');
             const originalClass = icon.className;
             icon.className = "fa-solid fa-check text-emerald-400";
@@ -716,8 +800,8 @@
             }, 2000);
         }
 
-        // Render projects and match styling tags
         function renderProjects(filter = 'all') {
+            if (!container) return;
             container.innerHTML = '';
             const filtered = filter === 'all' ? projects : projects.filter(p => p.tag === filter);
             
@@ -725,7 +809,6 @@
                 const card = document.createElement('div');
                 card.className = 'project-card glass p-6 rounded-3xl border border-white/5 flex flex-col justify-between group';
                 
-                // Dynamic class mapping for Tailwind colors
                 const colorClasses = {
                     red: 'bg-red-500/10 text-red-400',
                     indigo: 'bg-indigo-500/10 text-indigo-400',
@@ -744,12 +827,7 @@
                 };
 
                 const currentStyle = colorClasses[project.color] || colorClasses.indigo;
-                const isHelpCenter = project.name === "Help Center";
-                
-                // Route Help Center card natively to the on-page Contact Section
-                const actionTrigger = isHelpCenter 
-                    ? `onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;" href="#contact"` 
-                    : `href="${project.url}" target="_blank"`;
+                const hasDirectLiveApp = Boolean(project.url);
 
                 card.innerHTML = `
                     <div>
@@ -757,23 +835,34 @@
                             <div class="w-12 h-12 ${currentStyle.split(' ')[0]} rounded-2xl flex items-center justify-center ${currentStyle.split(' ')[1]} text-xl group-hover:scale-110 transition-transform">
                                 <i class="fa-solid ${project.icon}"></i>
                             </div>
-                            <div class="px-3 py-1 bg-white/5 text-[10px] rounded-full text-slate-500 font-bold uppercase tracking-wider">${project.tag}</div>
+                            <div class="px-3 py-1 bg-white/5 text-[10px] rounded-full text-slate-400 font-bold uppercase tracking-wider font-mono">${project.tag}</div>
                         </div>
                         <h3 class="text-lg font-bold mb-2 group-hover:text-indigo-300 transition-colors">${project.name}</h3>
-                        <p class="text-slate-500 text-xs leading-relaxed mb-8">${project.desc}</p>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">${project.desc}</p>
                     </div>
-                    <a ${actionTrigger} class="w-full py-3 bg-white/5 hover:bg-indigo-600 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center text-slate-300 hover:text-white group-hover:shadow-[0_0_15px_rgba(99,102,241,0.3)] cursor-pointer">
-                        LAUNCH HUB <i class="fa-solid fa-arrow-up-right-from-square ml-2 opacity-50 group-hover:opacity-100"></i>
-                    </a>
+
+                    <div class="flex flex-col gap-2 mt-4">
+                        ${hasDirectLiveApp ? `
+                            <a href="${project.url}" target="_blank" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center text-white shadow-md shadow-indigo-600/20 cursor-pointer">
+                                LAUNCH LIVE APP <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-[10px]"></i>
+                            </a>
+                        ` : ''}
+                        
+                        <a href="${project.repoUrl}" target="_blank" class="w-full py-2.5 bg-white/5 hover:bg-white/10 transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center text-slate-300 hover:text-white border border-white/5 cursor-pointer">
+                            <i class="fa-brands fa-github mr-2"></i> ${hasDirectLiveApp ? 'GITHUB REPO' : 'VIEW REPOSITORY'}
+                        </a>
+                    </div>
                 `;
                 container.appendChild(card);
             });
             
-            // Dynamically update total repository counter indicator
-            document.getElementById('repo-count').innerText = `${projects.length}+`;
+            const repoCounter = document.getElementById('repo-count');
+            if (repoCounter) {
+                repoCounter.innerText = `${projects.length}`;
+            }
         }
 
-        // Filter projects functionality
+        // Category filter handler
         function filterProjects(tag, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => {
                 b.classList.remove('active', 'text-white', 'bg-indigo-600');
@@ -784,24 +873,8 @@
             renderProjects(tag);
         }
 
-        // Initialize grid on document ready
+        // Initialize project list immediately
         renderProjects();
-
-        // Scroll Reveal Animations setup
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
-        });
     </script>
 </body>
 </html>
