@@ -737,15 +737,23 @@
                 <div>
                     <span class="text-xs font-mono tracking-widest text-indigo-400 uppercase">[ COMPLETE REPOSITORY INDEX ]</span>
                     <h2 class="text-4xl font-extrabold mb-2 mt-1 text-white">DSIndieAI Ecosystem</h2>
-                    <p class="text-slate-400 text-sm">Click on any project card or icon for a comprehensive overview of the product, architecture, and live deployment.</p>
+                    <p class="text-slate-400 text-sm">Click any project card or icon for a full overview with live links, features, and the source repository.</p>
+                    <p id="result-count" class="text-indigo-400 font-mono text-xs mt-2">46 projects indexed</p>
                 </div>
-                <div class="flex flex-wrap gap-2 glass p-1.5 rounded-2xl border border-white/5">
-                    <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all" onclick="filterProjects('all', this)">ALL</button>
-                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('ai', this)">AI & LLMs</button>
-                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('robotics', this)">ROBOTICS</button>
-                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('research', this)">RESEARCH</button>
-                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('edu', this)">EDUCATION</button>
-                    <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('utility', this)">UTILITIES</button>
+                <div class="w-full md:w-auto space-y-3">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                        <input type="text" id="project-search" oninput="searchProjects(this.value)" placeholder="Search all 46 projects..." class="w-full md:w-72 pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/60 transition-colors">
+                    </div>
+                    <div class="flex flex-wrap gap-2 glass p-1.5 rounded-2xl border border-white/5">
+                        <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all" onclick="filterProjects('all', this)">ALL</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('ai', this)">AI &amp; LLMs</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('robotics', this)">ROBOTICS</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('research', this)">RESEARCH</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('edu', this)">EDUCATION</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('utility', this)">UTILITIES</button>
+                        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white" onclick="filterProjects('social', this)">PARTNERS</button>
+                    </div>
                 </div>
             </div>
 
@@ -1058,282 +1066,716 @@
 
         // Full dataset including Robotics, Research Papers, Live Apps, and Repositories
         const projects = [
-            // Featured & Funding / Collabs
-            { 
-                name: "Changers Network", 
-                url: "https://changers-three.vercel.app/", 
-                repoUrl: `${profileUrl}/changers`, 
-                desc: "A social network and collaboration workspace for student changemakers. Officially received grant funding from AISB and promotional support from Inspire Citizens.", 
-                icon: "fa-users-viewfinder", 
-                tag: "ai", 
+{
+                name: "Changers Network",
+                url: "https://changers-three.vercel.app/",
+                repoUrl: "https://github.com/imredavid64-glitch",
+                repoMissing: true,
+                desc: "A dedicated social network and collaborative ecosystem for student changemakers. Backed by grant funding from the American International School of Budapest (AISB) and promotional support from Inspire Citizens.",
+                icon: "fa-users-viewfinder",
+                tag: "social",
                 color: "emerald",
                 highlights: [
-                    "Backed by AISB Grant Funding & Inspire Citizens promotional help",
-                    "Multi-client support: Next.js Web PWA, Expo Mobile, and Electron Desktop",
-                    "Appwrite backend for social feed, WebRTC video calls, rooms, and messaging",
-                    "Postgres database for media metadata, contact forms, and audit trails"
+                    "AISB grant funding backing infrastructure and deployment",
+                    "Promotional partnership with Inspire Citizens for global outreach",
+                    "Multi-client architecture: Next.js web PWA, Expo mobile, Electron desktop",
+                    "Appwrite backend for social feed, WebRTC video rooms, and messaging",
+                    "Postgres layer for media metadata, contact forms, and audit trails"
                 ]
             },
-            { 
-                name: "MultiLLM Consensus Engine", 
-                url: null, 
-                repoUrl: `${profileUrl}/MultiLLM`, 
-                desc: "Research paper implementation orchestrating heterogeneous LLMs (solver, critic, verifier, synthesizer) to boost reasoning accuracy by +26.7%.", 
-                icon: "fa-brain", 
-                tag: "research", 
-                color: "purple",
+            {
+                name: "Changer",
+                url: null,
+                repoUrl: "Changer",
+                repoMissing: false,
+                desc: "The core engine, schema, and shared type definitions underneath the Changers Network clients.",
+                icon: "fa-users-gear",
+                tag: "social",
+                color: "teal",
                 highlights: [
-                    "Published research paper draft on Multi-LLM Debate",
-                    "Ablation studies proving 3-model debate outperforms single models by +26.7%",
-                    "Role specialization architecture: Solver, Critic, Verifier, Synthesizer",
-                    "Operates entirely on a $0 cost free-tier API mesh (Groq + Gemini)"
+                    "Central API and database definitions",
+                    "Shared types across web, mobile, and desktop clients",
+                    "Foundation of the AISB-funded Changers ecosystem"
                 ]
             },
-            { 
-                name: "Sustainable AI Architecture", 
-                url: null, 
-                repoUrl: `${profileUrl}/sustainable-ai-architecture`, 
-                desc: "Research repository, benchmarks, and code exploring energy-efficient AI systems, carbon-aware inference, and low-power model deployments.", 
-                icon: "fa-leaf", 
-                tag: "research", 
-                color: "emerald",
-                highlights: [
-                    "Carbon-aware LLM request routing and energy benchmarking",
-                    "Low-bit quantization and low-power microcontroller execution models",
-                    "Systematic energy profiling across heterogeneous hardware backends"
-                ]
-            },
-
-            // Robotics & Mechatronics
-            { 
-                name: "SeaPerch ROV & Fluid Simulator", 
-                url: "https://sea-perch-sim.vercel.app/", 
-                repoUrl: `${profileUrl}/sea-perch-sim`, 
-                desc: "Custom underwater ROV physics simulation environment and physical control platform designed for SeaPerch competition readiness.", 
-                icon: "fa-water", 
-                tag: "robotics", 
+            {
+                name: "SeaPerch ROV & Fluid Simulator",
+                url: "https://sea-perch-sim.vercel.app/",
+                repoUrl: "sea-perch-sim",
+                repoMissing: false,
+                desc: "An underwater Remotely Operated Vehicle paired with a high-fidelity hydrodynamics software simulator, modelling ballast, thruster dynamics, and buoyancy for competition readiness.",
+                icon: "fa-water",
+                tag: "robotics",
                 color: "cyan",
                 highlights: [
-                    "3D underwater hydrodynamics & buoyancy physics simulation",
-                    "Real-time thruster thrust vectoring and ballast controls",
-                    "Designed for SeaPerch underwater robotics competition preparation"
+                    "3D underwater fluid and buoyancy physics simulation",
+                    "Real-time thruster thrust vectoring and ballast control",
+                    "Competition readiness tooling for SeaPerch underwater robotics",
+                    "Tuning loop that mirrors real ROV handling characteristics"
                 ]
             },
-            { 
-                name: "LeKiwi Omnidirectional Robot", 
-                url: null, 
-                repoUrl: `${profileUrl}/lekiwi-robotics`, 
-                desc: "Custom omnidirectional holonomic 3-wheel Kiwi drive robot platform featuring vector kinematics, microcontroller sync, and sensor telemetry.", 
-                icon: "fa-robot", 
-                tag: "robotics", 
+            {
+                name: "LeKiwi Omnidirectional Robot",
+                url: null,
+                repoUrl: "https://github.com/imredavid64-glitch",
+                repoMissing: true,
+                desc: "A custom-engineered Kiwi-drive (3-wheel omnidirectional) mechatronic robot platform with vector kinematics, microcontroller motor synchronisation, and wireless telemetry.",
+                icon: "fa-robot",
+                tag: "robotics",
                 color: "purple",
                 highlights: [
                     "3-wheel Kiwi holonomic omnidirectional drive kinematics",
-                    "ESP32 / Arduino microcontroller pwm motor control",
-                    "Ultrasonic distance sensors & wireless telemetry dashboard"
+                    "ESP32 / Arduino PWM motor control with closed-loop sync",
+                    "Ultrasonic distance sensing and live telemetry dashboard",
+                    "Vector translation and rotation from a single control input"
                 ]
             },
-            { 
-                name: "FLL Unearthed (Build Award Winner)", 
-                url: null, 
-                repoUrl: `${profileUrl}/fll-unearthed`, 
-                desc: "Award-winning FIRST LEGO League competition robot recognized with the prestigious FLL Build Award for mechanical design excellence.", 
-                icon: "fa-trophy", 
-                tag: "robotics", 
+            {
+                name: "FLL Unearthed — Build Award Winner",
+                url: null,
+                repoUrl: "https://github.com/imredavid64-glitch",
+                repoMissing: true,
+                desc: "An award-winning FIRST LEGO League robot recognised with the Build Award for structural durability, modular attachment switching, and precise gear-ratio power transmission.",
+                icon: "fa-trophy",
+                tag: "robotics",
                 color: "amber",
                 highlights: [
-                    "Official winner of the FIRST LEGO League Build Award",
-                    "High-torque gear ratio power transmission for precision mission delivery",
-                    "Modular quick-swap attachment mechanisms"
+                    "Official FIRST LEGO League Build Award recipient",
+                    "High-torque gear-ratio transmission for precise mission delivery",
+                    "Modular quick-swap attachment mechanisms",
+                    "Structural design prioritised for durability across events"
                 ]
             },
-            { 
-                name: "LEGO FLL Masterpiece", 
-                url: null, 
-                repoUrl: `${profileUrl}/fll-masterpiece`, 
-                desc: "Competition robotics build for the FIRST LEGO League MASTERPIECE season featuring dual gyro navigation and multi-mission attachments.", 
-                icon: "fa-shapes", 
-                tag: "robotics", 
+            {
+                name: "LEGO FLL Masterpiece",
+                url: null,
+                repoUrl: "https://github.com/imredavid64-glitch",
+                repoMissing: true,
+                desc: "A competition robotics build for the FIRST LEGO League MASTERPIECE season featuring dual gyro navigation, colour line-following routines, and multi-mission modular arm mechanisms.",
+                icon: "fa-shapes",
+                tag: "robotics",
                 color: "indigo",
                 highlights: [
                     "FLL MASTERPIECE 2023-2024 season competition robot",
-                    "Dual gyro sensor odometry line and angle correction",
-                    "Automated mission attachment routines"
+                    "Dual gyro sensor odometry for line and angle correction",
+                    "Automated mission attachment routines",
+                    "Modular arm mechanism design for varied missions"
                 ]
             },
-            { 
-                name: "FLL Underwater / Submerged (2024)", 
-                url: null, 
-                repoUrl: `${profileUrl}/fll-submerged`, 
-                desc: "Ocean science robotics platform and innovation solver built for the FIRST LEGO League 2024 SUBMERGED season.", 
-                icon: "fa-ship", 
-                tag: "robotics", 
+            {
+                name: "FLL Submerged — Underwater 2024",
+                url: null,
+                repoUrl: "https://github.com/imredavid64-glitch",
+                repoMissing: true,
+                desc: "An ocean science robotics and innovation solution for the FLL SUBMERGED season, exploring oceanographic exploration robotics and aquatic mission solvers.",
+                icon: "fa-ship",
+                tag: "robotics",
                 color: "blue",
                 highlights: [
                     "FLL SUBMERGED 2024 oceanographic exploration theme",
-                    "Robotic aquatic mission solvers and reef restoration tools",
-                    "Automated sensor-guided navigation"
+                    "Robotic aquatic mission solvers",
+                    "Exploration of coral reef restoration mechanisms",
+                    "Sensor-guided autonomous navigation concepts"
                 ]
             },
-
-            // Web Apps & AI Tools
-            { 
-                name: "TobiAI Platform", 
-                url: "https://tobi-website.vercel.app/", 
-                repoUrl: `${profileUrl}/tobiai`, 
-                desc: "AI chat and workflow assistant bringing localized AI services to Hungary, featuring the DSIndieAI MultiLLM consensus architecture.", 
-                icon: "fa-robot", 
-                tag: "ai", 
-                color: "indigo",
+            {
+                name: "VEX V5 Override 2026-27",
+                url: null,
+                repoUrl: "VEX-V5-Override-2026-27",
+                repoMissing: false,
+                desc: "A VEX V5 competition codebase for the 2026-2027 Override season, covering drivetrain control, autonomous routines, and match strategy logic in C++.",
+                icon: "fa-gears",
+                tag: "robotics",
+                color: "red",
                 highlights: [
-                    "MultiLLM consensus architecture backend",
-                    "Localized Hungarian & English chat workflows",
-                    "Task automation and persona management"
+                    "C++ control stack for the VEX V5 controller",
+                    "Autonomous routine and path planning modules",
+                    "Odometry and sensor fusion for field positioning",
+                    "Match strategy and driver control layers"
                 ]
             },
-            { 
-                name: "Cap Collective", 
-                url: "https://bottle-cap-tracker.vercel.app", 
-                repoUrl: `${profileUrl}/capcollective`, 
-                desc: "Circular economy recycling system logging plastic bottle caps via IoT connected school collection bins.", 
-                icon: "fa-recycle", 
-                tag: "utility", 
-                color: "teal",
+            {
+                name: "Multi-LLM Debate & Consensus",
+                url: null,
+                repoUrl: "MultiLLM",
+                repoMissing: false,
+                desc: "A research paper and implementation orchestrating heterogeneous LLMs as solver, critic, verifier, and synthesizer agents to measurably improve reasoning accuracy.",
+                icon: "fa-brain",
+                tag: "research",
+                color: "purple",
                 highlights: [
-                    "Deployed physical bins at Nagykovácsi Linum Mall and AISB",
-                    "Real-time weight and count telemetry reporting",
-                    "Promotes school-wide plastic recycling drives"
+                    "Structured multi-turn debate topology across model roles",
+                    "Measured +26.7% reasoning accuracy lift over single-model baselines",
+                    "Ablation studies on 1, 2, and 3-model configurations",
+                    "Operates on a zero-cost free-tier API mesh (Groq + Gemini)"
                 ]
             },
-            { 
-                name: "Aura Buddy", 
-                url: "https://aura-buddy-azure.vercel.app/", 
-                repoUrl: `${profileUrl}/aura-buddy`, 
-                desc: "Interactive digital assistant providing mood tracking, daily reflections, and motivational feedback.", 
-                icon: "fa-sparkles", 
-                tag: "utility", 
-                color: "pink",
+            {
+                name: "MultiLLM Research Harness",
+                url: null,
+                repoUrl: "MultiLLM-Research",
+                repoMissing: false,
+                desc: "The experimental harness, benchmark runners, and datasets backing the Multi-LLM Debate paper.",
+                icon: "fa-flask",
+                tag: "research",
+                color: "violet",
                 highlights: [
-                    "Azure-backed companion instance",
-                    "Daily reflection logs and positivity scoring"
+                    "Reproducible benchmark suite for reasoning tasks",
+                    "Prompt templates and role definitions for each agent",
+                    "Result logging and accuracy aggregation tooling",
+                    "Ablation configuration runners"
                 ]
             },
-            { 
-                name: "Learning Fans", 
-                url: "https://learningfans.vercel.app", 
-                repoUrl: `${profileUrl}/learningfans`, 
-                desc: "Interactive educational portal offering customized learning modules and video media for students.", 
-                icon: "fa-clapperboard", 
-                tag: "edu", 
-                color: "pink",
+            {
+                name: "Sustainable AI Architecture",
+                url: null,
+                repoUrl: "sustainable-ai-architecture",
+                repoMissing: false,
+                desc: "Research into energy-efficient AI system design: carbon-aware model scheduling, low-bit quantised edge inference, and minimising the environmental footprint of LLM deployment.",
+                icon: "fa-leaf",
+                tag: "research",
+                color: "emerald",
                 highlights: [
-                    "Visual learning modules & video integration",
-                    "Collaborative student study environments"
+                    "Carbon-aware LLM request routing and energy benchmarking",
+                    "Low-bit quantisation and microcontroller-scale execution models",
+                    "Systematic energy profiling across heterogeneous hardware",
+                    "Design guidance for sustainable inference deployments"
                 ]
             },
-            { 
-                name: "Study Hub Core", 
-                url: "https://study-hub-plum-omega.vercel.app", 
-                repoUrl: `${profileUrl}/study-hub`, 
-                desc: "Multi-subject study suite offering research-proven learning tools, autism support, and AI tutoring.", 
-                icon: "fa-book-open", 
-                tag: "edu", 
-                color: "blue",
+            {
+                name: "Yang-Mills and the Mass Gap",
+                url: null,
+                repoUrl: "Yang-Mills-the-Mass-Gap",
+                repoMissing: false,
+                desc: "A numerical exploration of the Yang-Mills mass gap problem, implementing lattice and Monte Carlo style methods to probe the mass spectrum of gauge fields.",
+                icon: "fa-atom",
+                tag: "research",
+                color: "violet",
                 highlights: [
-                    "Research-backed study strategies",
-                    "Autism spectrum friendly accessibility design",
-                    "AI-assisted subject summaries"
+                    "Python simulation of gauge field configurations",
+                    "Lattice-style discretisation and Monte Carlo sampling",
+                    "Mass spectrum probing and observables extraction",
+                    "Documented exploration of a Millennium Prize problem"
                 ]
             },
-            { 
-                name: "Grader Jet", 
-                url: "https://grader-jet.vercel.app", 
-                repoUrl: `${profileUrl}/Grader`, 
-                desc: "Automated grading tool for evaluating code submissions and math problem sets.", 
-                icon: "fa-plane-up", 
-                tag: "edu", 
-                color: "amber",
+            {
+                name: "Medic Experiment",
+                url: null,
+                repoUrl: "Medic-Experiment",
+                repoMissing: false,
+                desc: "An experiment examining bias in medical AI systems, with all code, data, and evaluation guides sourced from one place.",
+                icon: "fa-microscope",
+                tag: "research",
+                color: "red",
                 highlights: [
-                    "Instant automated script evaluation",
-                    "Detailed feedback generation for teachers"
+                    "AI bias auditing for medical decision contexts",
+                    "Reproducible data and evaluation guides",
+                    "Diagnostic and triage algorithm experiments",
+                    "Documented findings and methodology"
                 ]
             },
-            { 
-                name: "AI Platform Builder", 
-                url: "https://ai-platform-builder.vercel.app/", 
-                repoUrl: `${profileUrl}/ai-platform-builder`, 
-                desc: "No-code backend service for creating, training, and deploying customized AI platforms.", 
-                icon: "fa-cubes-stacked", 
-                tag: "ai", 
+            {
+                name: "NASAMAP",
+                url: "https://nasamap.vercel.app",
+                repoUrl: "NASAMAP",
+                repoMissing: false,
+                desc: "An interactive mapping application visualising NASA mission and geographic data in an explorable interface.",
+                icon: "fa-satellite",
+                tag: "research",
+                color: "sky",
+                highlights: [
+                    "Interactive map interface for NASA datasets",
+                    "Searchable and filterable mission and location data",
+                    "Built as a TypeScript web application",
+                    "Publicly deployed web instance"
+                ]
+            },
+            {
+                name: "OpenAnimalNet",
+                url: "https://openanimalnet.vercel.app",
+                repoUrl: "openanimalnet",
+                repoMissing: false,
+                desc: "An open data platform for animal-related datasets, built as a TypeScript web application.",
+                icon: "fa-paw",
+                tag: "research",
+                color: "orange",
+                highlights: [
+                    "Open animal data collection and serving",
+                    "TypeScript full-stack implementation",
+                    "Public web deployment",
+                    "Community-extensible schema"
+                ]
+            },
+            {
+                name: "SkyDump",
+                url: null,
+                repoUrl: "SkyDump",
+                repoMissing: false,
+                desc: "A Python data tool for collecting and processing sky and atmospheric observation data.",
+                icon: "fa-cloud",
+                tag: "research",
+                color: "sky",
+                highlights: [
+                    "Python data collection pipelines",
+                    "Processing and analysis utilities",
+                    "Structured output for downstream tools"
+                ]
+            },
+            {
+                name: "NumPy Reference Mirror",
+                url: null,
+                repoUrl: "numpy",
+                repoMissing: false,
+                desc: "A local reference mirror of the NumPy scientific computing package, kept for offline documentation and study reference.",
+                icon: "fa-square-root-variable",
+                tag: "research",
+                color: "sky",
+                highlights: [
+                    "Offline reference for the NumPy library",
+                    "Scientific computing documentation",
+                    "Used as a study reference"
+                ]
+            },
+            {
+                name: "AI Platform Builder",
+                url: "https://ai-platform-builder.vercel.app",
+                repoUrl: "ai-platform-builder",
+                repoMissing: false,
+                desc: "A no-code backend service for creating, training, and deploying customised AI platforms.",
+                icon: "fa-cubes-stacked",
+                tag: "ai",
                 color: "violet",
                 highlights: [
                     "No-code interface for AI agent generation",
-                    "One-click full platform scaffold deployment"
+                    "One-click full platform scaffold deployment",
+                    "JavaScript backend implementation"
                 ]
             },
-            { 
-                name: "Changy Data Analysis Site", 
-                url: "https://changy-website.vercel.app/", 
-                repoUrl: `${profileUrl}/Changy-website`, 
-                desc: "Landing site for the Changy data analysis platform featuring DuckDB engine and hybrid AI analysis.", 
-                icon: "fa-chart-pie", 
-                tag: "ai", 
+            {
+                name: "Hybra Calculator",
+                url: null,
+                repoUrl: "hybra-calculator",
+                repoMissing: false,
+                desc: "A calculator with a differentiable LLM agent layer, allowing the calculation logic itself to be adjusted programmatically.",
+                icon: "fa-calculator",
+                tag: "ai",
+                color: "teal",
+                highlights: [
+                    "Differentiable LLM agent that adapts the calculator logic",
+                    "Python implementation",
+                    "Programmatic API for embedding in other tools"
+                ]
+            },
+            {
+                name: "Debugger Code Test",
+                url: null,
+                repoUrl: "debugger-code-test",
+                repoMissing: false,
+                desc: "An in-browser debugging environment that runs code and supports plugging in your own LLM API key (Gemini) for assistance.",
+                icon: "fa-bug",
+                tag: "ai",
+                color: "amber",
+                highlights: [
+                    "Runs code directly in an HTML environment",
+                    "Bring-your-own LLM API key support via Gemini",
+                    "Iterative debugging assistance loop"
+                ]
+            },
+            {
+                name: "SpatialFrame",
+                url: null,
+                repoUrl: "SpatialFrame",
+                repoMissing: false,
+                desc: "A spatial computing project exploring 3D scene structure, coordinate framing, and scene composition.",
+                icon: "fa-cube",
+                tag: "ai",
+                color: "indigo",
+                highlights: [
+                    "3D spatial framing concepts",
+                    "Scene structure modelling",
+                    "Experimental geometry tooling"
+                ]
+            },
+            {
+                name: "House",
+                url: null,
+                repoUrl: "house",
+                repoMissing: false,
+                desc: "A JavaScript web project exploring smart-home style interfaces and home automation concepts.",
+                icon: "fa-house",
+                tag: "ai",
                 color: "rose",
                 highlights: [
-                    "High-speed DuckDB query execution",
-                    "Hybrid AI data summarization"
+                    "JavaScript web application",
+                    "Automation-oriented UI design",
+                    "Extensible smart-device abstraction"
                 ]
             },
-            { 
-                name: "Medic-Experiment", 
-                url: null, 
-                repoUrl: `${profileUrl}/Medic-Experiment`, 
-                desc: "Experimental tool exploring medical decision trees, health diagnostic triage, and biological simulations.", 
-                icon: "fa-microscope", 
-                tag: "research", 
-                color: "red",
+            {
+                name: "Changy Data & AI Workspace",
+                url: "https://changy-website-f63iuzkh6-imredavid64-glitchs-projects.vercel.app/",
+                repoUrl: "Changy",
+                repoMissing: false,
+                desc: "A full-stack data and AI workspace with a FastAPI backend, React frontend, and DuckDB integration for seamless SQL and Python analysis.",
+                icon: "fa-chart-pie",
+                tag: "ai",
+                color: "rose",
                 highlights: [
-                    "Algorithmic diagnostic decision tree evaluator",
-                    "Biological simulation logic"
+                    "FastAPI backend with React frontend",
+                    "DuckDB engine for high-speed analytical SQL",
+                    "Hybrid AI-assisted data summarisation",
+                    "Notebook-style SQL and Python workflow"
                 ]
             },
-            { 
-                name: "Dohány Zsinagóga", 
-                url: "https://dohany-zsinagoga.vercel.app/", 
-                repoUrl: `${profileUrl}/dohany-zsinagoga`, 
-                desc: "Informative web app highlighting the Dohány Street Synagogue with bilingual Hungarian/English switching.", 
-                icon: "fa-synagogue", 
-                tag: "edu", 
-                color: "blue",
+            {
+                name: "Datagrabber",
+                url: null,
+                repoUrl: "datagrabber",
+                repoMissing: false,
+                desc: "A logic-based engine that transforms arbitrary web content into structured JSON and CSV databases ready for use in an application.",
+                icon: "fa-database",
+                tag: "ai",
+                color: "sky",
                 highlights: [
-                    "Bilingual HU/EN interface",
-                    "Cultural heritage documentation"
+                    "Web content to JSON/CSV transformation engine",
+                    "Logic-driven extraction rules",
+                    "Python implementation",
+                    "Directly consumable by downstream apps"
                 ]
             },
-            { 
-                name: "Flow Language Web", 
-                url: "https://flowweb-tan.vercel.app/", 
-                repoUrl: `${profileUrl}/Flow`, 
-                desc: "High-level plain English programming language executor.", 
-                icon: "fa-code-branch", 
-                tag: "utility", 
+            {
+                name: "Flow Language Web",
+                url: "https://flowweb-tan.vercel.app/",
+                repoUrl: "Flow",
+                repoMissing: false,
+                desc: "A high-level plain-English programming language executor, written in C, that runs human-readable English syntax in the browser.",
+                icon: "fa-code-branch",
+                tag: "utility",
                 color: "sky",
                 highlights: [
                     "Human-readable English syntax parser",
-                    "In-browser code execution sandbox"
+                    "In-browser code execution sandbox",
+                    "C language implementation",
+                    "Accessible alternative syntax for non-programmers"
                 ]
             },
-            { 
-                name: "Omni Choice", 
-                url: "https://omni-choice.vercel.app/", 
-                repoUrl: `${profileUrl}/omni-choice`, 
-                desc: "Weighted parameter decision-making application to make literate purchasing choices.", 
-                icon: "fa-scale-balanced", 
-                tag: "utility", 
+            {
+                name: "Exceller",
+                url: null,
+                repoUrl: "exceller",
+                repoMissing: false,
+                desc: "A Python utility for advanced Excel and spreadsheet processing workflows.",
+                icon: "fa-file-excel",
+                tag: "ai",
+                color: "emerald",
+                highlights: [
+                    "Advanced spreadsheet processing",
+                    "Python scripting and automation",
+                    "Bulk transformation of tabular data"
+                ]
+            },
+            {
+                name: "Ambassador Directory",
+                url: null,
+                repoUrl: "ambassadordirectory",
+                repoMissing: false,
+                desc: "A TypeScript directory application for organising and browsing ambassador and partnership records.",
+                icon: "fa-address-book",
+                tag: "research",
+                color: "indigo",
+                highlights: [
+                    "TypeScript full-stack implementation",
+                    "Searchable directory records",
+                    "Designed for partnership and outreach management"
+                ]
+            },
+            {
+                name: "Study Hub Core",
+                url: "https://studyhub-seven-tawny.vercel.app",
+                repoUrl: "studyhub",
+                repoMissing: false,
+                desc: "A multi-subject study suite offering research-proven learning tools, accessibility support, and AI-assisted tutoring.",
+                icon: "fa-book-open",
+                tag: "edu",
+                color: "blue",
+                highlights: [
+                    "Research-backed study strategies",
+                    "Autism-spectrum-friendly accessibility design",
+                    "AI-assisted subject summaries",
+                    "Multi-subject organisation and planning"
+                ]
+            },
+            {
+                name: "Study Hub v2",
+                url: "https://studyhub2-two.vercel.app",
+                repoUrl: "studyhub2",
+                repoMissing: false,
+                desc: "The newer iteration of Study Hub, rebuilt with a refreshed interface and expanded study tooling.",
+                icon: "fa-book",
+                tag: "edu",
+                color: "blue",
+                highlights: [
+                    "Newer Study Hub rewrite",
+                    "JavaScript implementation",
+                    "Improved session and revision planning",
+                    "Publicly deployed instance"
+                ]
+            },
+            {
+                name: "Study Hub Desktop Installers",
+                url: null,
+                repoUrl: "study-hub-installers",
+                repoMissing: false,
+                desc: "Downloadable desktop builds of Study Hub for macOS, Windows, and Linux.",
+                icon: "fa-download",
+                tag: "edu",
+                color: "slate",
+                highlights: [
+                    "macOS, Windows, and Linux desktop builds",
+                    "Native install packages",
+                    "Desktop-first study experience"
+                ]
+            },
+            {
+                name: "Study Hub Experiments",
+                url: null,
+                repoUrl: "study-hub-5",
+                repoMissing: false,
+                desc: "Experimental JavaScript builds and prototypes exploring new Study Hub features.",
+                icon: "fa-flask",
+                tag: "edu",
+                color: "sky",
+                highlights: [
+                    "Prototype study experiences",
+                    "Feature exploration and iteration",
+                    "JavaScript prototype implementation"
+                ]
+            },
+            {
+                name: "Grader Jet",
+                url: "https://graderjet.vercel.app",
+                repoUrl: "graderjet",
+                repoMissing: false,
+                desc: "An automated grading tool for evaluating code submissions and mathematics problem sets with detailed feedback.",
+                icon: "fa-plane-up",
+                tag: "edu",
+                color: "amber",
+                highlights: [
+                    "Instant automated script evaluation",
+                    "Detailed feedback generation for teachers",
+                    "TypeScript full-stack implementation"
+                ]
+            },
+            {
+                name: "Learning Fans",
+                url: null,
+                repoUrl: "learningfans",
+                repoMissing: false,
+                desc: "An interactive educational portal offering customised learning modules and supporting video media for students.",
+                icon: "fa-clapperboard",
+                tag: "edu",
+                color: "pink",
+                highlights: [
+                    "Visual learning modules and video integration",
+                    "Collaborative student study environments",
+                    "TypeScript web implementation"
+                ]
+            },
+            {
+                name: "Math Exam — 8th Graders",
+                url: null,
+                repoUrl: "end-of-year-math-exam-for-8th-graders",
+                repoMissing: false,
+                desc: "An end-of-year mathematics practice exam built for 8th grade students, with exercises and worked solutions.",
+                icon: "fa-calculator",
+                tag: "edu",
+                color: "lime",
+                highlights: [
+                    "End-of-year 8th grade exam format",
+                    "Practice exercises and worked solutions",
+                    "Self-assessment for exam readiness"
+                ]
+            },
+            {
+                name: "Dohány Street Synagogue",
+                url: "https://dohany-zsinagoga.vercel.app",
+                repoUrl: "dohany-zsinagoga",
+                repoMissing: false,
+                desc: "An informative web application highlighting the Dohány Street Synagogue with bilingual Hungarian and English switching.",
+                icon: "fa-synagogue",
+                tag: "edu",
+                color: "blue",
+                highlights: [
+                    "Bilingual Hungarian/English interface",
+                    "Cultural heritage documentation",
+                    "TypeScript implementation"
+                ]
+            },
+            {
+                name: "Cap Collective",
+                url: "https://capcollective.vercel.app",
+                repoUrl: "capcollective",
+                repoMissing: false,
+                desc: "A circular-economy recycling system logging plastic bottle caps through IoT-connected collection bins.",
+                icon: "fa-recycle",
+                tag: "utility",
                 color: "teal",
                 highlights: [
-                    "Multi-criteria decision analysis (MCDA)",
-                    "Custom parameter weightings"
+                    "Deployed physical bins at Nagykovácsi Linum and AISB",
+                    "Real-time weight and count telemetry reporting",
+                    "Promotes school-wide plastic recycling drives",
+                    "Open data on collected material"
+                ]
+            },
+            {
+                name: "Cap Collective IoT Firmware",
+                url: null,
+                repoUrl: "cap-collective",
+                repoMissing: false,
+                desc: "The embedded C++ firmware powering the ESP32-based Cap Collective collection bins.",
+                icon: "fa-microchip",
+                tag: "utility",
+                color: "teal",
+                highlights: [
+                    "C++ embedded firmware for ESP32 sensor nodes",
+                    "Weight and count sensor readouts",
+                    "Wireless telemetry back to the dashboard"
+                ]
+            },
+            {
+                name: "Bottle Cap Tracker",
+                url: "https://bottle-cap-tracker.vercel.app",
+                repoUrl: "bottle-cap-tracker",
+                repoMissing: false,
+                desc: "A web tracker logging and visualising bottle cap collection totals across bins and locations.",
+                icon: "fa-weight-hanging",
+                tag: "utility",
+                color: "teal",
+                highlights: [
+                    "Collection logging by bin and location",
+                    "Progress visualisation and totals",
+                    "HTML web implementation"
+                ]
+            },
+            {
+                name: "Bottle Cap Analyzer",
+                url: "https://bottle-cap-analyzer.vercel.app",
+                repoUrl: "Bottle-Cap-Analyzer",
+                repoMissing: false,
+                desc: "An analysis tool that processes bottle cap collection data and surfaces trends and insights.",
+                icon: "fa-chart-simple",
+                tag: "utility",
+                color: "teal",
+                highlights: [
+                    "Trend and aggregate analysis of cap collections",
+                    "Reporting views for recycling drives",
+                    "HTML web implementation"
+                ]
+            },
+            {
+                name: "Pi To-Do",
+                url: null,
+                repoUrl: "pi-to-do",
+                repoMissing: false,
+                desc: "A Python to-do application built for lightweight task management on low-power single-board computers.",
+                icon: "fa-list-check",
+                tag: "utility",
+                color: "indigo",
+                highlights: [
+                    "Python task management application",
+                    "Designed for low-power single-board devices",
+                    "Simple, focused to-do workflow"
+                ]
+            },
+            {
+                name: "Pi Scanner",
+                url: null,
+                repoUrl: "pi-scanner",
+                repoMissing: false,
+                desc: "A Python scanning and analysis utility for inspecting and validating data or code inputs.",
+                icon: "fa-circle-info",
+                tag: "utility",
+                color: "cyan",
+                highlights: [
+                    "Python-based scanning engine",
+                    "Structured validation output",
+                    "Easily scriptable and embeddable"
+                ]
+            },
+            {
+                name: "Rush E Makey Makey",
+                url: "https://rush-e-makey-makey.vercel.app",
+                repoUrl: "rush-e-makey-makey",
+                repoMissing: false,
+                desc: "A playful web experience pairing Makey Makey hardware inputs with the melody of Rush E for banana-connected play.",
+                icon: "fa-music",
+                tag: "utility",
+                color: "yellow",
+                highlights: [
+                    "Makey Makey hardware input mapping",
+                    "Interactive musical web experience",
+                    "Playable with conductive fruit objects"
+                ]
+            },
+            {
+                name: "PulseCampus",
+                url: null,
+                repoUrl: "PulseCampus",
+                repoMissing: false,
+                desc: "A campus pulse and wellbeing platform built as a TypeScript web application for student community engagement.",
+                icon: "fa-heart-pulse",
+                tag: "social",
+                color: "pink",
+                highlights: [
+                    "Campus engagement and wellbeing tracking",
+                    "TypeScript full-stack implementation",
+                    "Community activity visualisation"
+                ]
+            },
+            {
+                name: "Euphoria Clothing Budapest",
+                url: "https://euphoria-smoky.vercel.app",
+                repoUrl: "euphoria",
+                repoMissing: false,
+                desc: "A collaboration with Euphoria Clothing Budapest, a local boutique apparel and lifestyle brand, blending technology with sustainable fashion outreach.",
+                icon: "fa-shirt",
+                tag: "social",
+                color: "pink",
+                highlights: [
+                    "Collaboration with a local Budapest apparel brand",
+                    "Sustainable fashion and lifestyle crossover",
+                    "Social media and community promotion partnership",
+                    "TypeScript web implementation"
+                ]
+            },
+            {
+                name: "DSIndieAI Website",
+                url: "https://dsindieai-website.vercel.app",
+                repoUrl: "dsindieai",
+                repoMissing: false,
+                desc: "This portfolio and ecosystem site: an interactive index of every DSIndieAI project, research effort, and partnership.",
+                icon: "fa-globe",
+                tag: "social",
+                color: "indigo",
+                highlights: [
+                    "Interactive project overview modals for every entry",
+                    "Filterable ecosystem index",
+                    "Partnership, funding, and research showcases"
+                ]
+            },
+            {
+                name: "GitHub Profile Site",
+                url: "https://imredavid64-glitch.github.io",
+                repoUrl: "imredavid64-glitch.github.io",
+                repoMissing: false,
+                desc: "The GitHub Pages profile site for the founder, listing repositories, pinned work, and contact links.",
+                icon: "fa-github",
+                tag: "social",
+                color: "slate",
+                highlights: [
+                    "Automated GitHub profile page",
+                    "Repository listing and pinned projects",
+                    "GitHub Pages hosted"
                 ]
             }
         ];
@@ -1392,8 +1834,15 @@
                 liveBtn.classList.add('hidden');
             }
 
-            // Repo link handler
+            // Repo link handler — hardware builds without a repo point at the GitHub profile
             repoBtn.href = project.repoUrl;
+            const repoLabel = repoBtn.querySelector('span');
+            if (project.repoMissing) {
+                if (repoLabel) repoLabel.innerText = "VIEW GITHUB PROFILE";
+                repoBtn.classList.remove('hidden');
+            } else {
+                if (repoLabel) repoLabel.innerText = "VIEW GITHUB REPO";
+            }
 
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -1444,10 +1893,33 @@
             }, 2000);
         }
 
-        function renderProjects(filter = 'all') {
+        let activeFilter = 'all';
+        let activeQuery = '';
+
+        function renderProjects(filter = 'all', query = '') {
             if (!container) return;
             container.innerHTML = '';
-            const filtered = filter === 'all' ? projects : projects.filter(p => p.tag === filter);
+            const q = (query || '').trim().toLowerCase();
+            const filtered = projects.filter(p => {
+                const tagOk = filter === 'all' || p.tag === filter;
+                const qOk = !q || p.name.toLowerCase().includes(q)
+                    || p.desc.toLowerCase().includes(q)
+                    || p.tag.toLowerCase().includes(q)
+                    || (p.highlights || []).some(h => h.toLowerCase().includes(q));
+                return tagOk && qOk;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <i class="fa-solid fa-magnifying-glass text-4xl text-slate-700 mb-4 block"></i>
+                        <p class="text-slate-400 font-mono text-sm">NO MATCHES FOR "${query.toUpperCase()}"</p>
+                        <button onclick="clearSearch()" class="mt-4 px-5 py-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white rounded-xl text-xs font-bold transition-all">
+                            CLEAR SEARCH
+                        </button>
+                    </div>`;
+                return;
+            }
             
             filtered.forEach(project => {
                 const card = document.createElement('div');
@@ -1479,6 +1951,8 @@
 
                 const currentStyle = colorClasses[project.color] || colorClasses.indigo;
                 const hasDirectLiveApp = Boolean(project.url);
+                const safeName = project.name.replace(/'/g, "\\'");
+                const repoLabel = project.repoMissing ? 'PROFILE' : 'REPO';
 
                 card.innerHTML = `
                     <div>
@@ -1493,8 +1967,8 @@
                     </div>
 
                     <div class="space-y-2 mt-2 pt-4 border-t border-white/5">
-                        <button onclick="openProjectModal('${project.name}')" class="w-full py-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-circle-info text-[10px]"></i> QUICK OVERVIEW
+                        <button onclick="openProjectModal('${safeName}')" class="w-full py-2 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white transition-all rounded-xl text-center text-xs font-bold flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-circle-info text-[10px]"></i> OVERVIEW
                         </button>
                         <div class="flex gap-2">
                             ${hasDirectLiveApp ? `
@@ -1503,7 +1977,7 @@
                                 </a>
                             ` : ''}
                             <a href="${project.repoUrl}" target="_blank" class="flex-1 py-2 bg-white/5 hover:bg-white/10 transition-all rounded-xl text-center text-[10px] font-bold flex items-center justify-center text-slate-300 hover:text-white border border-white/5 cursor-pointer">
-                                <i class="fa-brands fa-github mr-1"></i> REPO
+                                <i class="fa-brands fa-github mr-1"></i> ${repoLabel}
                             </a>
                         </div>
                     </div>
@@ -1513,7 +1987,14 @@
             
             const repoCounter = document.getElementById('repo-count');
             if (repoCounter) {
-                repoCounter.innerText = `${projects.length}+`;
+                repoCounter.innerText = `${projects.length}`;
+            }
+
+            const resultCount = document.getElementById('result-count');
+            if (resultCount) {
+                resultCount.innerText = filter === 'all' && !q
+                    ? `${projects.length} projects indexed`
+                    : `${filtered.length} of ${projects.length} shown`;
             }
         }
 
@@ -1524,7 +2005,20 @@
             });
             btn.classList.add('active', 'text-white');
             btn.classList.remove('text-slate-400');
-            renderProjects(tag);
+            activeFilter = tag;
+            renderProjects(activeFilter, activeQuery);
+        }
+
+        function searchProjects(value) {
+            activeQuery = value;
+            renderProjects(activeFilter, activeQuery);
+        }
+
+        function clearSearch() {
+            const input = document.getElementById('project-search');
+            if (input) input.value = '';
+            activeQuery = '';
+            renderProjects(activeFilter, '');
         }
 
         // Close modal on Escape key
