@@ -129,6 +129,156 @@
             font-weight: 800;
             text-transform: uppercase;
         }
+
+        /* ===== XENOBLADE FIELD ARCHIVE (easter egg) ===== */
+        .eg-strip {
+            position: relative;
+            border-top: 1px solid rgba(125, 211, 252, 0.10);
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.9), rgba(8, 47, 73, 0.18));
+            padding: 12px 20px;
+        }
+        .eg-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(70% 130% at 50% 0%, rgba(34, 211, 238, 0.09), transparent 70%);
+            pointer-events: none;
+        }
+        .eg-inner {
+            max-width: 80rem;
+            margin: 0 auto;
+            position: relative;
+        }
+        .eg-trigger {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(125, 211, 252, 0.16);
+            border-radius: 14px;
+            padding: 9px 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .eg-trigger:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            background: rgba(8, 47, 73, 0.45);
+            box-shadow: 0 0 26px -8px rgba(34, 211, 238, 0.5);
+            transform: translateY(-1px);
+        }
+        .eg-trigger:focus-visible {
+            outline: 2px solid rgba(34, 211, 238, 0.8);
+            outline-offset: 3px;
+        }
+        .eg-mark {
+            width: 24px;
+            height: 24px;
+            flex: none;
+            filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.65));
+        }
+        .eg-label { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+        .eg-eyebrow {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            color: rgba(125, 211, 252, 0.75);
+        }
+        .eg-title {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #bae6fd;
+        }
+        .eg-hint {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 9px;
+            letter-spacing: 0.16em;
+            color: rgba(125, 211, 252, 0.7);
+            border: 1px solid rgba(125, 211, 252, 0.25);
+            border-radius: 999px;
+            padding: 4px 10px;
+            flex: none;
+        }
+        .eg-panel {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .eg-panel.is-open { grid-template-rows: 1fr; }
+        .eg-clip { overflow: hidden; }
+        .eg-body {
+            margin-top: 12px;
+            border: 1px solid rgba(125, 211, 252, 0.14);
+            border-radius: 18px;
+            background: rgba(2, 12, 24, 0.6);
+            padding: 18px;
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        .eg-emblem {
+            position: relative;
+            border: 1px solid rgba(125, 211, 252, 0.18);
+            border-radius: 14px;
+            background: radial-gradient(circle at 50% 40%, rgba(34, 211, 238, 0.10), rgba(2, 6, 23, 0.9));
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .eg-emblem svg { width: 84px; height: 84px; }
+        .eg-emblem span {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 8px;
+            letter-spacing: 0.14em;
+            color: rgba(125, 211, 252, 0.65);
+            text-align: center;
+        }
+        .eg-quote {
+            font-size: 13px;
+            font-weight: 600;
+            color: #7dd3fc;
+            line-height: 1.6;
+            margin: 0 0 4px;
+        }
+        .eg-quote em { color: rgba(186, 230, 253, 0.85); font-style: normal; }
+        .eg-cards {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+        .eg-card {
+            border: 1px solid rgba(125, 211, 252, 0.12);
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.45);
+            padding: 12px;
+        }
+        .eg-card h5 {
+            margin: 0 0 6px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            color: rgba(125, 211, 252, 0.9);
+        }
+        .eg-card p {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.55;
+            color: rgba(203, 213, 225, 0.75);
+        }
+        @media (max-width: 720px) {
+            .eg-body { grid-template-columns: 1fr; }
+            .eg-emblem { max-width: 132px; margin: 0 auto; }
+            .eg-cards { grid-template-columns: 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .eg-panel { transition: none; }
+        }
     </style>
 </head>
 <body class="antialiased bg-[#0b1120] text-slate-100 min-h-screen">
@@ -1013,6 +1163,85 @@
             2024-2026 DSIndieAI. Founded & Maintained by David I.K. (@imredavid64-glitch).
         </div>
     </footer>
+
+    <!-- ===== XENOBLADE FIELD ARCHIVE — easter egg ===== -->
+    <section class="eg-strip" id="xeno-archive">
+        <div class="eg-inner">
+            <button class="eg-trigger" onclick="toggleXeno()" aria-expanded="false" aria-controls="eg-panel">
+                <!-- Xenoblade Chronicles X logo mark: angular X -->
+                <svg class="eg-mark" viewBox="0 0 100 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="xgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#e0f2fe"/>
+                            <stop offset="55%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#6366f1"/>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#xgrad)" d="M18 16 L44 16 L50 37 L56 16 L82 16 L58 50 L82 84 L56 84 L50 63 L44 84 L18 84 L42 50 Z"/>
+                </svg>
+                <span class="eg-label">
+                    <span class="eg-eyebrow">◆ ARCHIVE 09 // DECRYPT</span>
+                    <span class="eg-title">KOHAN FIELD DATA</span>
+                </span>
+                <span class="eg-hint" id="eg-hint">OPEN</span>
+            </button>
+
+            <div class="eg-panel" id="eg-panel">
+                <div class="eg-clip">
+                    <div class="eg-body">
+                        <div class="eg-emblem">
+                            <!-- Mechon emblem: helm crest over twin ocular slits -->
+                            <svg viewBox="0 0 100 100" role="img" aria-label="Mechon emblem">
+                                <defs>
+                                    <radialGradient id="mglow" cx="50%" cy="42%" r="60%">
+                                        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.55"/>
+                                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+                                    </radialGradient>
+                                </defs>
+                                <circle cx="50" cy="46" r="44" fill="url(#mglow)"/>
+                                <!-- crest -->
+                                <path fill="#bae6fd" d="M50 10 L59 26 L41 26 Z"/>
+                                <rect x="45" y="24" width="10" height="7" fill="#bae6fd"/>
+                                <!-- helm -->
+                                <path fill="#0b1120" stroke="#7dd3fc" stroke-width="3.5" d="M50 27 C70 27 80 42 80 58 C80 75 67 87 50 87 C33 87 20 75 20 58 C20 42 30 27 50 27 Z"/>
+                                <!-- brow ridge -->
+                                <path fill="#7dd3fc" d="M28 49 C36 43 64 43 72 49 L69 54 C61 49 39 49 31 54 Z"/>
+                                <!-- ocular slits -->
+                                <ellipse cx="37" cy="64" rx="7" ry="10" fill="#38bdf8"/>
+                                <ellipse cx="63" cy="64" rx="7" ry="10" fill="#38bdf8"/>
+                                <ellipse cx="37" cy="65" rx="3" ry="6" fill="#e0f2fe"/>
+                                <ellipse cx="63" cy="65" rx="3" ry="6" fill="#e0f2fe"/>
+                                <!-- vent -->
+                                <path stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" d="M42 80 L58 80"/>
+                            </svg>
+                            <span>MECHON CLASS<br>SIGIL</span>
+                        </div>
+
+                        <div>
+                            <p class="eg-quote">
+                                &ldquo;The Monado! It burns away the face of evil!&rdquo;
+                                <em>&mdash; Shulk, Colony 9</em>
+                            </p>
+                            <div class="eg-cards">
+                                <div class="eg-card">
+                                    <h5>COLONY 9</h5>
+                                    <p>The city on KOHAN where it began. A single sword fell from the sky, and one boy decided to pick it up.</p>
+                                </div>
+                                <div class="eg-card">
+                                    <h5>MIRA</h5>
+                                    <p>Five thousand years on, the sea swallowed everything and the world was renamed. The Mechon never stopped.</p>
+                                </div>
+                                <div class="eg-card">
+                                    <h5>THE MISSION</h5>
+                                    <p>Defend the Elpys against Mechon incursions across the Pseudos-Capital. Field data compiled by <strong style="color:#7dd3fc">Elma</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- INTERACTIVE PRODUCT OVERVIEW MODAL -->
     <div id="project-overview-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
@@ -2026,6 +2255,24 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeProjectModal();
         });
+
+        // Toggle the Xenoblade field archive easter egg
+        function toggleXeno() {
+            const panel = document.getElementById('eg-panel');
+            const hint = document.getElementById('eg-hint');
+            const eyebrow = document.querySelector('.eg-eyebrow');
+            const trigger = document.querySelector('.eg-trigger');
+            if (!panel) return;
+
+            const open = panel.classList.toggle('is-open');
+            if (trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (hint) hint.textContent = open ? 'CLOSE' : 'OPEN';
+            if (eyebrow) {
+                eyebrow.textContent = open
+                    ? '◆ ARCHIVE 09 // DECRYPTED'
+                    : '◆ ARCHIVE 09 // DECRYPT';
+            }
+        }
 
         // Initialize project grid on page load
         renderProjects();
